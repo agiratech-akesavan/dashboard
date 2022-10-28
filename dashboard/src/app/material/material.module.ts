@@ -3,7 +3,9 @@ import { MatGridListModule } from "@angular/material/grid-list";
 import { MatButtonModule } from "@angular/material/button";
 import { MatInputModule } from "@angular/material/input";
 import { MatIconModule } from "@angular/material/icon";
-import { FlexLayoutModule } from "@angular/flex-layout"
+import { FlexLayoutModule } from "@angular/flex-layout";
+import { MatSidenavModule } from "@angular/material/sidenav";
+import { MatCardModule } from "@angular/material/card"
 
 const material=[
   MatGridListModule,
@@ -11,7 +13,9 @@ const material=[
   MatInputModule,
   MatInputModule,
   MatIconModule,
-  FlexLayoutModule
+  FlexLayoutModule,
+  MatSidenavModule,
+  MatCardModule
 ]
 
 @NgModule({

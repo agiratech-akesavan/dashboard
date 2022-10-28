@@ -1,0 +1,28 @@
+$primary:#043752;
+$secondary:white;
+$light-primary:#2c566d5d;
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.sidenav{
+    mat-drawer-container{
+        mat-drawer{
+            width:15%;
+            background-color: $light-primary;
+        }
+        mat-drawer-content{ 
+            mat-grid-list{
+                mat-grid-tile {
+                    background: lightblue;
+                  }
+            }
+        }
+    }
+
+}
+
+

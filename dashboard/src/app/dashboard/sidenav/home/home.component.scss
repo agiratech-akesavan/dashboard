@@ -1,0 +1,88 @@
+$primary:#043752;
+$secondary:white;
+$light-primary:#2c566d5d;
+
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    width: 100%;
+    // background-color: aqua;
+    .content{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        height: 100%;
+        .charts{
+            height:30vh;
+            width:20vw;
+            // background-color: rgb(255, 0, 0);  
+            background-color: rgba(216, 214, 214, 0.534);  
+            margin: 2rem;         
+            border-radius: 8px; 
+            // .card{
+                .top-content{
+                    display: flex;
+                    justify-content: space-between;
+                    button{
+                        background-color: $light-primary;
+                        // padding:.5px 10px .5px 10px;
+                        height:2rem;
+                        color: $primary;
+                        font-size: .8rem;
+                    }
+                    p{
+                        margin-top:10px;
+                    }
+                }
+                .chart-width{
+                    width:10vw;
+                }
+            // }
+       }
+    }
+}
+
+/*media query for the laptop screen */
+
+@media(min-width:1024px) and (max-width:1439px){
+    .container{
+        .content{
+            .charts{
+                height:20vh;
+                width:22vw;
+                margin: 1.5rem;
+           }
+        }
+    }   
+}
+
+/*media query for the tab screen */
+
+@media(min-width:768px) and (max-width:1023px){
+    .container{
+        .content{
+            .charts{
+                height:18vh;
+                width:33vw;
+                margin: .8rem;         
+           }
+        }
+    }   
+}
+
+/*media query for the mobile screen */
+
+@media(min-width:375px) and (max-width:767px){
+    .container{
+        .content{
+            .charts{
+                height:12vh;
+                width:60vw; 
+                margin: .8rem;       
+           }
+        }
+    }   
+}

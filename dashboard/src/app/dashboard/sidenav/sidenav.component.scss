@@ -1,6 +1,6 @@
 $primary:#043752;
 $secondary:white;
-$light-primary:#2c566d5d;
+$light-primary:#2c566d23;
 
 *{
     margin:0;
@@ -13,6 +13,31 @@ $light-primary:#2c566d5d;
         mat-drawer{
             width:15%;
             background-color: $light-primary;
+           .nav{
+            height: 6vh;
+                .button{
+                    cursor: pointer;
+                    text-align: left;
+                    height:100%;
+                    display: flex;
+                    // background-color: $light-primary;
+                    justify-content: center;
+                    align-items: center;
+                    color: $primary;
+                    font-weight: 500;
+                    border-bottom: 1px solid $primary;
+                    mat-icon{
+                        text-align: end;
+                        padding-right:10px;
+                        width:25%;
+                    }
+                    p{
+                        width: 75%;
+                        margin-top:8px;
+                        text-align: left
+                    }
+                }
+           } 
         }
         mat-drawer-content{ 
             mat-grid-list{
@@ -23,6 +48,18 @@ $light-primary:#2c566d5d;
         }
     }
 
+}
+
+@media (min-width:375px) and (max-width:767px){
+    .sidenav{
+        mat-drawer-container{
+            mat-drawer{
+                display: none;
+                width:15%;
+                background-color: $light-primary;
+            }
+        }
+    }
 }
 
 

@@ -1,0 +1,22 @@
+[
+    {
+        "people":168,
+        "year":2019,
+        "color":"#043752"
+    },
+    {
+        "people":300,
+        "year":2020,
+        "color":"#12a1c9"
+    },
+    {
+        "people":120,
+        "year":2021,
+        "color":"#fc8d05"
+    },
+    {
+        "people":80,
+        "year":2022,
+        "color":"#cfab1b"
+    }
+]

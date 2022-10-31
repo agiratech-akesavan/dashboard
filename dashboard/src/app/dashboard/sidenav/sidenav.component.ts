@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DashboardtitleService } from 'src/app/service/dashboardtitle.service';
 
 @Component({
   selector: 'app-sidenav',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidenavComponent implements OnInit {
 
-  constructor() { }
+  public titles:any;
+  constructor(public service:DashboardtitleService) { }
 
   ngOnInit(): void {
+    this.service.dashboardTitle().subscribe(data=>{
+      return this.titles=data
+    })
+  }
+
+  add(title:any){
+    console.log(title.title);
   }
 
 }

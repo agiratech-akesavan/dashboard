@@ -1,0 +1,54 @@
+[
+    {
+        "icon":"apps",
+        "title":"Dashboard"
+    },
+    {
+        "icon":"insert_emoticon",
+        "title":"Registeration"
+    },
+    {
+        "icon":"camera_enhance",
+        "title":"Accession"
+    },
+    {
+        "icon":"pie_chart",
+        "title":"Operations"
+    },
+    {
+        "icon":"merge_type",
+        "title":"User Management"
+    },
+    {
+        "icon":"table_chart",
+        "title":"Corner Management"
+    },
+    {
+        "icon":"folder_shared",
+        "title":"Test Manageme"
+    },
+    {
+        "icon":"memory",
+        "title":"Order Management"
+    },
+    {
+        "icon":"contacts",
+        "title":"Reports Management"
+    },
+    {
+        "icon":"public",
+        "title":"Finance"
+    },
+    {
+        "icon":"folder_special",
+        "title":"Analytic"
+    },
+    {
+        "icon":"search",
+        "title":"Adwarance Search"
+    },
+    {
+        "icon":"outlined_flag",
+        "title":"Activity Log"
+    }
+]

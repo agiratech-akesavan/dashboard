@@ -6,6 +6,7 @@ $secondary:white;
     padding: 0;
     box-sizing: border-box;
 }
+
 .nav{
     width:100%;
     background-color: $primary;
@@ -51,6 +52,21 @@ $secondary:white;
                     text-align: center;
                     display: block;
                     color: $secondary;
+                }
+            }
+        }
+    }
+}
+
+
+//media query under 768px;
+
+@media (min-width:375px) and (max-width:767px){
+    .nav{
+        .navigation{
+            .notification{
+                .notification-button{
+                    display: none;
                 }
             }
         }

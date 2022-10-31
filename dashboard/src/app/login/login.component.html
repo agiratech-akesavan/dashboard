@@ -24,7 +24,7 @@
                             <input matInput>
                         </mat-form-field>
                         <span>Forget Password?</span>
-                        <button mat-raised-button disableRipple (click)="router()">Login</button>
+                        <button (click)="router()" mat-raised-button disableRipple [routerLink]="['/dashboard']" >Login</button>
                     </form>
                 </div>
                 </div>

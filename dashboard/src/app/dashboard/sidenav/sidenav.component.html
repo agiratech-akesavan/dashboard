@@ -1,6 +1,65 @@
 <div class="sidenav">
     <mat-drawer-container class="example-container">
-        <mat-drawer mode="side" opened>Drawer content</mat-drawer>
+        <mat-drawer mode="side" opened>
+            <div class="nav">
+                <div class="button" *ngFor="let title of titles">
+                    <mat-icon>{{title.icon}}</mat-icon>
+                    <p (click)="add(title)">{{title.title}}</p>
+                </div>
+                <!-- <div class="button">
+                    <mat-icon>apps</mat-icon>
+                    <p>Dashboard</p>
+                </div>
+                <div class="button">
+                    <mat-icon> insert_emoticon</mat-icon>
+                    <p>Resigeration</p>
+                </div>
+                <div class="button">
+                    <mat-icon>camera_enhance</mat-icon>
+                    <p>Accession</p>
+                </div>
+                <div class="button">
+                    <mat-icon> pie_chart</mat-icon>
+                    <p>Operations</p>
+                </div>
+                <div class="button">
+                    <mat-icon> merge_type</mat-icon>
+                    <p>User Management</p>
+                </div>
+                <div class="button">
+                    <mat-icon> table_chart</mat-icon>
+                    <p>Corner Management</p>
+                </div>
+                <div class="button">
+                    <mat-icon>folder_shared</mat-icon>
+                    <p>Test Management</p>
+                </div>
+                <div class="button">
+                    <mat-icon>memory</mat-icon>
+                    <p>Orders Management</p>
+                </div>
+                <div class="button">
+                    <mat-icon> contacts</mat-icon>
+                    <p>Reports Management</p>
+                </div>
+                <div class="button">
+                    <mat-icon>public</mat-icon>
+                    <p>Finance</p>
+                </div>
+                <div class="button">
+                    <mat-icon>folder_special</mat-icon>
+                    <p>Analytic</p>
+                </div>
+                <div class="button">
+                    <mat-icon>search</mat-icon>
+                    <p>Adwarnce Search</p>
+                </div>
+                <div class="button">
+                    <mat-icon>outlined_flag</mat-icon>
+                    <p>Activity Log</p>
+                </div> -->
+            </div>
+        </mat-drawer>
         <mat-drawer-content>
             <app-home></app-home>
         </mat-drawer-content>

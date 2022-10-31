@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'dashboard';
+  public mobile:any=window.matchMedia("(min-width:768px)")
+  constructor(){
+    if(this.mobile.matches){
+      alert("mobile")
+    }
+  };
+
 }

@@ -1,0 +1,26 @@
+[
+    {
+        "attended":168,
+        "total":200,
+        "year":2019,
+        "color":"#2c509e"
+    },
+    {
+        "attended":200,
+        "total":250,
+        "year":2020,
+        "color":"#12a1c9"
+    },
+    {
+        "attended":120,
+        "total":250,
+        "year":2021,
+        "color":"#fc8d05"
+    },
+    {
+        "attended":80,
+        "total":200,
+        "year":2022,
+        "color":"#cfab1b"
+    }
+]

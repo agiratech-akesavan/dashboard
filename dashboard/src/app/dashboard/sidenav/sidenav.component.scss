@@ -50,13 +50,25 @@ $light-primary:#2c566d23;
 
 }
 
+.toggle{
+    display: block;
+}
+
 @media (min-width:375px) and (max-width:767px){
     .sidenav{
         mat-drawer-container{
             mat-drawer{
-                display: none;
-                width:15%;
-                background-color: $light-primary;
+                // display: none;
+                width:50%;
+                position: absolute;
+                background-color: $primary;
+                .nav{
+                    .button{
+                        color: $secondary;
+                        border-bottom: .5px solid $secondary;
+                        // border-top: .5px solid $secondary;
+                    }
+                }
             }
         }
     }

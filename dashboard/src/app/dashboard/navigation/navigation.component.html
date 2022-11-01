@@ -1,5 +1,8 @@
 <div class="nav">
     <div class="navigation">
+        <div class="sidenav">
+            <i class="fa-solid fa-bars" (click)="toggle()"></i>
+        </div>
         <div class="input-box">
             <mat-icon matSuffix>search</mat-icon>
             <input type="text" placeholder="search...">
@@ -8,17 +11,19 @@
             <div class="douts">
                 <i class="fa-solid fa-ellipsis-vertical"></i>
             </div>
-            <div class="notification-button" >
-                <button mat-mini-fab style="margin-left: 10px;">
-                    <mat-icon>notification_important</mat-icon>
-                </button>
-                <span>Notifictaion</span>
-            </div>
-            <div class="notification-button">
-                <button mat-mini-fab>
-                    <mat-icon>person</mat-icon>
-                </button>
-                <span>User</span>
+            <div class="notification-block">
+                <div class="notification-button">
+                    <button mat-mini-fab style="margin-left: 10px;">
+                        <mat-icon>notification_important</mat-icon>
+                    </button>
+                    <span>Notifictaion</span>
+                </div>
+                <div class="notification-button">
+                    <button mat-mini-fab>
+                        <mat-icon>person</mat-icon>
+                    </button>
+                    <span>User</span>
+                </div>
             </div>
         </div>
     </div>

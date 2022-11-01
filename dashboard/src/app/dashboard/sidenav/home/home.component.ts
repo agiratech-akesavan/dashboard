@@ -2,7 +2,6 @@ import { identifierName } from '@angular/compiler';
 import { Component, ComponentRef, OnInit } from '@angular/core';
 import { DefaultTitleStrategy } from '@angular/router';
 import { Chart,registerables } from "node_modules/chart.js"
-import { endWith } from 'rxjs';
 import { ChartServiceService } from 'src/app/service/chart-service.service';
 
 Chart.register(...registerables);

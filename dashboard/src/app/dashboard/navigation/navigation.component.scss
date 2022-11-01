@@ -1,5 +1,6 @@
 $primary:#043752;
 $secondary:white;
+$light-primary:#2c566d5d;
 
 *{
     margin:0;
@@ -15,6 +16,14 @@ $secondary:white;
         margin-left:15%;
         display: flex;
         justify-content: space-between;
+        align-items: center;
+        .sidenav{
+            display: none;
+            i{
+                font-size: 1.5rem;
+                color:white;
+            }
+        }
         .input-box{
             display: flex;
             align-items: center;
@@ -38,35 +47,60 @@ $secondary:white;
             align-items: center;
             height: 100%;
             margin-right: 5rem;
-            .notification-button{
-                margin:3rem;
-                // display: block;
-                button{
-                    background-color: $secondary;
-                    mat-icon{
-                        color:$primary;
+            .douts{
+                display: none;
+                font-size: 1.5rem;
+                color: white;
+            }
+            .notification-block{
+                display: flex;
+                .notification-button{
+                    margin:0rem 1.5rem;
+                    // display: block;
+                    button{
+                        background-color: $secondary;
+                        mat-icon{
+                            color:$primary;
+                        }
                     }
-                }
-                span{
-                    font-size: .8rem;
-                    text-align: center;
-                    display: block;
-                    color: $secondary;
+                    span{
+                        font-size: .8rem;
+                        text-align: center;
+                        display: block;
+                        color: $secondary;
+                        }
+                    }
                 }
             }
         }
-    }
 }
 
+.toggle{
+    display: none;
+}
 
 //media query under 768px;
 
 @media (min-width:375px) and (max-width:767px){
     .nav{
         .navigation{
+            margin:0px;
+            display: flex;
+            justify-content:space-between;
+            .sidenav{
+                display: block;
+                margin-left:1rem;
+            }
             .notification{
-                .notification-button{
-                    display: none;
+                margin-right:2rem;
+                .douts{
+                    display: block;
+                }
+                .notification-block{
+                    display: block;
+                    .notification-button{
+                        display: none;
+                    }
                 }
             }
         }

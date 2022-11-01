@@ -7,6 +7,8 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { MaterialModule } from '../material/material.module';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { HomeComponent } from './sidenav/home/home.component';
+import { HamburgerDirective } from '../custom-directive/hamburger.directive';
+
 
 
 @NgModule({
@@ -14,7 +16,8 @@ import { HomeComponent } from './sidenav/home/home.component';
     DashboardComponent,
     NavigationComponent,
     SidenavComponent,
-    HomeComponent
+    HomeComponent,
+    HamburgerDirective
   ],
   imports: [
     CommonModule,

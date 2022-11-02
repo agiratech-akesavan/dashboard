@@ -8,11 +8,17 @@
             <input type="text" placeholder="search...">
         </div>
         <div class="notification">
-            <div class="douts">
-                <i class="fa-solid fa-ellipsis-vertical"></i>
+            <div class="douts" *ngIf="douts">
+                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                    <mat-icon matBadge={{badge}} [matBadgeHidden]="badge==0" matBadgeColor="accent" style="margin-left:10px;margin-top: 10%; color:#043752">notification_important</mat-icon>
+                    <mat-icon style="margin-left:40%; color:#043752">person</mat-icon>
+                </mat-menu>
             </div>
-            <div class="notification-block">
-                <div class="notification-button">
+            <div class="notification-block" #notication>
+                <div class="notification-button" >
                     <button mat-mini-fab style="margin-left: 10px;">
                         <mat-icon>notification_important</mat-icon>
                     </button>

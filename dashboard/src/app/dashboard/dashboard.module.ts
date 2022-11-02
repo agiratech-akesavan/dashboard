@@ -8,6 +8,8 @@ import { MaterialModule } from '../material/material.module';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { HomeComponent } from './sidenav/home/home.component';
 import { HamburgerDirective } from '../custom-directive/hamburger.directive';
+import { FormsModule } from '@angular/forms';
+
 
 
 
@@ -22,7 +24,8 @@ import { HamburgerDirective } from '../custom-directive/hamburger.directive';
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule,
   ]
 })
 export class DashboardModule { }

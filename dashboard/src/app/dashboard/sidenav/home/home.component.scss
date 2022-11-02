@@ -1,6 +1,7 @@
 $primary:#043752;
 $secondary:white;
 $light-primary:#2c566d5d;
+$date-button:#2c566d8f;
 
 
 .container{
@@ -30,6 +31,8 @@ $light-primary:#2c566d5d;
                 .top-content{
                     display: flex;
                     justify-content: space-between;
+                    align-items: center;
+                    // width:100%;
                     button{
                         background-color: $light-primary;
                         // padding:.5px 10px .5px 10px;
@@ -41,6 +44,35 @@ $light-primary:#2c566d5d;
                         color: $primary;
                         font-weight: 500;
                         margin-top:10px;
+                    }
+                    div{
+                        display: flex;
+                        justify-content: flex-end;
+                        // background-color:$light-primary;
+                        // width:7rem;
+                        input{
+                            float: right;
+                            text-align: center;
+                            // margin-right: -4rem;
+                            font-size: .8rem;
+                            font-weight: 700;
+                            color:$primary;
+                            background-color:$light-primary;
+                            border:none;
+                            width:50%;
+                            height: 1.65rem;
+                            border-radius: 5px;
+                        }
+                        input:active{
+                            border:none
+                        }
+                        mat-icon{
+                            // position: absolute;
+                            // margin-left: 1.5rem;
+                            // margin-top:3px ;
+                            color:$primary;
+                            // float: right;
+                        }
                     }
                 }
                 .chart-width{
@@ -63,6 +95,9 @@ $light-primary:#2c566d5d;
                         font-size: 4rem;
                         color:$primary;
                         margin-top: 10px;
+                    }
+                    img{
+                        height: 70px;
                     }
                     p{
                         text-align: center;

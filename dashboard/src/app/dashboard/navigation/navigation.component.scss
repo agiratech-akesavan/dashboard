@@ -79,6 +79,8 @@ $light-primary:#2c566d5d;
     display: none;
 }
 
+
+
 //media query under 768px;
 
 @media (min-width:375px) and (max-width:767px){
@@ -95,14 +97,33 @@ $light-primary:#2c566d5d;
                 margin-right:2rem;
                 .douts{
                     display: block;
+                    mat-menu{
+                        button{
+                            color:red;
+                        }
+                    }
                 }
                 .notification-block{
-                    display: block;
+                    display: none;
                     .notification-button{
-                        display: none;
+                        display: block;
+                        button{
+                            background-color: $secondary;
+                            font-size: 3rem;
+                            mat-icon{
+                                color:$primary;
+                            }
+                        }
+                        span{
+                            font-size: .8rem;
+                            text-align: center;
+                            display: block;
+                            color: $secondary;
+                            }
                     }
                 }
             }
         }
     }
 }
+

@@ -13,6 +13,7 @@ Chart.register(...registerables);
 })
 export class HomeComponent implements OnInit {
 
+  //card inputs
 
   public orders:number=100;
   public onboarded:number=200;
@@ -22,6 +23,8 @@ export class HomeComponent implements OnInit {
   public organization:number=2;
   public doctor:number=2;
   public staff:number=4;
+
+  //charts input 
 
   public datails:any;
   public year:any[]=[];
@@ -51,7 +54,20 @@ export class HomeComponent implements OnInit {
   public color4:any[]=[];
   public people4:any[]=[];
 
-  constructor(public service:ChartServiceService) { }
+  //data of the button
+
+  public model:any={startDate:new Date()}
+
+  public today=new Date();
+  public dd=String(this.today.getDate()).padStart(2,"0");
+  public mm=String(this.today.getMonth()).padStart(2,"0");
+  public yyyy=this.today.getFullYear();
+
+  public date=this.dd+"/"+this.mm+"/"+this.yyyy;
+
+  constructor(public service:ChartServiceService) { 
+    // console.log(this.data);
+  }
 
   ngOnInit(): void {
 

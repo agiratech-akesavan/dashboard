@@ -4,8 +4,21 @@
         <div class="chart">
             <mat-card class="charts">
                 <mat-card-content class="top-content">
-                    <p>Total Orders:<span>{{orders}}</span></p>
-                    <button mat-raised-button>SHARE<mat-icon>keyboard_arrow_down</mat-icon></button>
+                        <p>Total Orders:<span>{{orders}}</span></p>
+                    <!-- <button mat-raised-button>{{date}}<mat-icon>keyboard_arrow_down</mat-icon></button> -->
+                    <!-- <mat-form-field class="example-full-width" appearance="fill"> -->
+                        <!-- <mat-label>Choose a date</mat-label> -->
+                        <!-- <input type="text" > -->
+                    <div>
+                        <mat-datepicker #picker></mat-datepicker>
+                        <input  matInput 
+                        [matDatepicker]="picker" 
+                        name="startDate" 
+                        [(ngModel)]="model.startDate" 
+                        (click)="picker.open()" />
+                        <!-- <mat-icon matSuffix>keyboard_arrow_down</mat-icon> -->
+                    </div>
+                      <!-- </mat-form-field> -->
                 </mat-card-content>
                 <mat-card-content class="chart-width">
                         <canvas id="charts"></canvas>     
@@ -16,7 +29,16 @@
             <mat-card class="charts">
                 <mat-card-content class="top-content">
                     <p>Collections</p>
-                    <button mat-raised-button>SHARE<mat-icon>keyboard_arrow_down</mat-icon></button>
+                    <!-- <button mat-raised-button>{{date}}<mat-icon>keyboard_arrow_down</mat-icon></button> -->
+                    <div>
+                        <mat-datepicker #picker></mat-datepicker>
+                        <input  matInput 
+                        [matDatepicker]="picker" 
+                        name="startDate" 
+                        [(ngModel)]="model.startDate" 
+                        (click)="picker.open()" />
+                        <mat-icon matSuffix>keyboard_arrow_down</mat-icon>
+                    </div>
                 </mat-card-content>
                 <mat-card-content class="chart-width">
                     <canvas id="charts1"></canvas>     
@@ -27,7 +49,16 @@
             <mat-card class="charts">
                 <mat-card-content class="top-content">
                     <p>Onboarded :<span>{{onboarded}}</span></p>
-                    <button mat-raised-button>SHARE<mat-icon>keyboard_arrow_down</mat-icon></button>
+                    <!-- <button mat-raised-button>{{date}}<mat-icon>keyboard_arrow_down</mat-icon></button> -->
+                    <div>
+                        <mat-datepicker #picker></mat-datepicker>
+                        <input  matInput 
+                        [matDatepicker]="picker" 
+                        name="startDate" 
+                        [(ngModel)]="model.startDate" 
+                        (click)="picker.open()" />
+                        <mat-icon matSuffix>keyboard_arrow_down</mat-icon>
+                    </div>
                 </mat-card-content>
                 <mat-card-content>
                     <canvas id="charts2"></canvas>
@@ -38,7 +69,18 @@
             <mat-card class="charts">
                 <mat-card-content class="top-content">
                     <p>Total Orders:<span>{{orders}}</span></p>
-                    <button mat-raised-button>SHARE<mat-icon>keyboard_arrow_down</mat-icon></button>
+                    <!-- <button mat-raised-button>{{date}}<mat-icon>keyboard_arrow_down</mat-icon></button> -->
+                    <div>
+                        <!-- <label> -->
+                        <mat-datepicker #picker></mat-datepicker>
+                            <input  matInput 
+                            [matDatepicker]="picker" 
+                            name="startDate" 
+                            [(ngModel)]="model.startDate" 
+                            (click)="picker.open()" />
+                            <mat-icon matSuffix>keyboard_arrow_down</mat-icon>
+                        <!-- </label> -->
+                    </div>
                 </mat-card-content>
                 <mat-card-content>
                     <canvas id="charts3"></canvas>
@@ -49,23 +91,26 @@
             <mat-card class="charts">
                 <mat-card-content class="top-content">
                     <p>User Logins : <span>{{login}}</span></p>
-                    <button mat-raised-button>SHARE<mat-icon>keyboard_arrow_down</mat-icon></button>
+                    <button mat-raised-button>{{date}}<mat-icon>keyboard_arrow_down</mat-icon></button>
                 </mat-card-content>
                 <mat-card-content>
                     <div class="login">
                         <div class="organization">
                             <h5>Organization</h5>
-                            <i class="fa-solid fa-sitemap"></i>
+                            <!-- <i class="fa-solid fa-sitemap"></i> -->
+                            <img src="../../../../assets/image/organization-chart.png">
                             <p>Login : {{organization}}</p>
                         </div>
                         <div class="organization">
                             <h5>Doctor</h5>
-                            <i class="fa-solid fa-user-doctor"></i>
+                            <!-- <i class="fa-solid fa-user-doctor"></i> -->
+                            <img src="../../../../assets/image/medical-team.png">
                             <p>Login : {{doctor}}</p>
                         </div>
                         <div class="organization">
                             <h5>Staff</h5>
-                            <i class="fa-solid fa-person-military-to-person"></i>
+                            <!-- <i class="fa-solid fa-person-military-to-person"></i> -->
+                            <img src="../../../../assets/image/teamwork.png">
                             <p>Login : {{staff}}</p>
                         </div>
                     </div>
@@ -76,7 +121,16 @@
             <mat-card class="charts">
                 <mat-card-content class="top-content">
                     <p>Patients : <span>{{patients}}</span></p>
-                    <button mat-raised-button>SHARE<mat-icon>keyboard_arrow_down</mat-icon></button>
+                    <!-- <button mat-raised-button >{{date}}<mat-icon>keyboard_arrow_down</mat-icon></button> -->
+                    <div>
+                        <mat-datepicker #picker></mat-datepicker>
+                        <input  matInput 
+                        [matDatepicker]="picker" 
+                        name="startDate" 
+                        [(ngModel)]="model.startDate" 
+                        (click)="picker.open()" />
+                        <mat-icon matSuffix>keyboard_arrow_down</mat-icon>
+                    </div>
                 </mat-card-content>
                 <mat-card-content>
                   <canvas id="charts4"></canvas>

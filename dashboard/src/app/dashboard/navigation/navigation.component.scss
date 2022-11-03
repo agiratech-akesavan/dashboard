@@ -8,7 +8,7 @@ $light-primary:#2c566d5d;
     box-sizing: border-box;
 }
 
-.nav{
+.navs{
     width:100%;
     background-color: $primary;
     .navigation{
@@ -39,7 +39,7 @@ $light-primary:#2c566d5d;
                 padding: 5px  0px;
                 font-size: .9rem;
                 text-align: center;
-                width: 250px;
+                width: 300px;
             }
         }
         .notification{
@@ -70,7 +70,7 @@ $light-primary:#2c566d5d;
                         color: $secondary;
                         }
                     }
-                }
+                }  
             }
         }
 }
@@ -83,8 +83,8 @@ $light-primary:#2c566d5d;
 
 //media query under 768px;
 
-@media (min-width:375px) and (max-width:767px){
-    .nav{
+@media (min-width:375px) and (max-width:1024px){
+    .navs{
         .navigation{
             margin:0px;
             display: flex;
@@ -94,14 +94,9 @@ $light-primary:#2c566d5d;
                 margin-left:1rem;
             }
             .notification{
-                margin-right:2rem;
+                margin-right:1rem;
                 .douts{
                     display: block;
-                    mat-menu{
-                        button{
-                            color:red;
-                        }
-                    }
                 }
                 .notification-block{
                     display: none;

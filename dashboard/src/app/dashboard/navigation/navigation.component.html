@@ -1,4 +1,4 @@
-<div class="nav">
+<div class="navs">
     <div class="navigation">
         <div class="sidenav">
             <i class="fa-solid fa-bars" (click)="toggle()"></i>
@@ -15,6 +15,7 @@
                 <mat-menu #menu="matMenu">
                     <mat-icon matBadge={{badge}} [matBadgeHidden]="badge==0" matBadgeColor="accent" style="margin-left:10px;margin-top: 10%; color:#043752">notification_important</mat-icon>
                     <mat-icon style="margin-left:40%; color:#043752">person</mat-icon>
+                    <button mat-menu-item><i class="fa-solid fa-unlock" style=" font-size:1.1rem ; color:#043752" (click)="userLogout()"></i></button>
                 </mat-menu>
             </div>
             <div class="notification-block" #notication>
@@ -24,12 +25,16 @@
                     </button>
                     <span>Notifictaion</span>
                 </div>
-                <div class="notification-button">
+                <div class="notification-button" [matMenuTriggerFor]="logout">
                     <button mat-mini-fab>
                         <mat-icon>person</mat-icon>
                     </button>
                     <span>User</span>
                 </div>
+                <mat-menu #logout="matMenu">
+                <button mat-menu-item  (click)="userLogout()" style="color:#043752"><i class="fa-solid fa-unlock" style="padding:5px;color:#043752;"></i>Logout</button>
+                <!-- <button mat-menu-item>Item 2</button> -->
+                </mat-menu>
             </div>
         </div>
     </div>

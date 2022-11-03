@@ -1,3 +1,7 @@
+$primary:#043752;
+$secondary:white;
+$light-primary:#2c566d5d;
+
 *{
     padding: 0;
     margin: 0;
@@ -30,30 +34,63 @@
             width:400px;
             background-color: white;
             .login-heading{
-                margin-bottom:2rem;
+                margin-bottom:3rem;
                 h3{
                     font-weight: 500;
                     color: #043752;
                     span{
+                        // text-align: center;
+                        // display: flex;
+                        // align-items: center;
+                        margin-top: 10px;
                         font-weight: 600;
+                        font-size: 1.3rem;
                     }
                 }
             }
         }
         .login-container{
-            margin:7rem 3rem 7rem 3rem;
+            margin:7rem 1rem 7rem 1rem;
+            width: 75%;
         }
         form{
-            mat-form-field{
+            // mat-form-field{
                 width:100%;
-                padding: 0 !important;
-                input{
-                    font-size: 1rem;
+                // padding: 0 !important;
+                div{
+                    height:2.5rem;
+                    // margin-top:1.3rem
+                    // background-color: $light-primary;
+                    span{
+                        display: flex;
+                        align-items: center;
+                        height:2.5rem;
+                        padding: 8px;
+                        background-color: $light-primary;
+                        color: $primary;
+                    }
+                    input{
+                        background-color: $light-primary;
+                        color: $primary;
+                        padding-left:4px;
+                        // background-color: $light-primary;
+                        // border: none;
+                        // font-size: 1rem;
+                        // padding:18px 0px;
+                        // width:90%;
+                        // height:1.8rem !important;
+                        // margin-left:-2rem;
+                    }
+                    input:focus{
+                        // outline: none;
+                        padding: none;
+                        border: none;
+                    }
+                    mat-icon{
+                        color:#043752;
+                    }
                 }
-                mat-icon{
-                    color:#043752;
-                }
-            }
+            // }
             span{
                 display: block;
                 position: relative;

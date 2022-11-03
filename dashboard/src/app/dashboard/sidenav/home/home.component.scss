@@ -4,7 +4,7 @@ $light-primary:#2c566d5d;
 $date-button:#2c566d8f;
 
 
-.container{
+.containers{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,20 +15,19 @@ $date-button:#2c566d8f;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        height: 100%;
-      
+        height: 80%;
         .chart{
             display: flex;
             flex-wrap: wrap;
             .charts{
-                height:250px;
-                width:300px;
+                height:260px;
+                width:330px;
                 // background-color: rgb(255, 0, 0);  
                 background-color: rgba(216, 214, 214, 0.534);  
                 margin: 2rem;         
                  border-radius: 8px; 
             // .card{
-                .top-content{
+                .top-contents{
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
@@ -51,7 +50,7 @@ $date-button:#2c566d8f;
                         // background-color:$light-primary;
                         // width:7rem;
                         input{
-                            float: right;
+                            // float: right;
                             text-align: center;
                             // margin-right: -4rem;
                             font-size: .8rem;
@@ -77,7 +76,7 @@ $date-button:#2c566d8f;
                 }
                 .chart-width{
                     width:200px;
-                    height:200px
+                    height:100px
                 }
                 // }
                 .login{
@@ -114,14 +113,28 @@ $date-button:#2c566d8f;
 
 /*media query for the laptop screen */
 
-@media(min-width:1024px) and (max-width:1439px){
-    .container{
+@media(min-width:1150px) and (max-width:1439px){
+    .containers{
         .content{
             .chart{
                 .charts{
                     height:300px;
-                    width:250px;
-                    // margin: .8rem;         
+                    width:300px;
+                    margin: .8rem;         
+                }
+            }
+        }
+    }   
+}
+
+@media(min-width:1024px) and (max-width:1149px){
+    .containers{
+        .content{
+            .chart{
+                .charts{
+                    height:300px;
+                    width:263px;
+                    margin: .8rem;         
                 }
             }
         }
@@ -130,13 +143,27 @@ $date-button:#2c566d8f;
 
 /*media query for the tab screen */
 
-@media(min-width:768px) and (max-width:1023px){
-    .container{
+@media(min-width:768px) and (max-width:879px){
+    .containers{
         .content{
             .chart{
                 .charts{
-                    height:250px;
-                    width:250px;
+                    height:280px;
+                    width:230px;
+                    margin: .8rem;         
+                }
+            }
+        }
+    }   
+}
+
+@media(min-width:880px) and (max-width:1024px){
+    .containers{
+        .content{
+            .chart{
+                .charts{
+                    height:280px;
+                    width:265px;
                     margin: .8rem;         
                 }
             }
@@ -147,12 +174,12 @@ $date-button:#2c566d8f;
 /*media query for the mobile screen */
 
 @media(min-width:375px) and (max-width:767px){
-    .container{
+    .containers{
         .content{
             .chart{
                 .charts{
                     height:250px;
-                    width:350px; 
+                    width:300px; 
                     margin: .8rem;       
                 }
             }

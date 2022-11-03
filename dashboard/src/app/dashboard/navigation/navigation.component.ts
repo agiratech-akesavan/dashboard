@@ -1,5 +1,6 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
 import {  AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToggleService } from 'src/app/service/toggle.service';
 
 @Component({
@@ -18,14 +19,15 @@ export class NavigationComponent implements OnInit,AfterViewInit {
   public collapse:boolean=true;
 
   
-  constructor( public toggleService:ToggleService,public render:Renderer2,public observer:BreakpointObserver) { }
+  constructor( public toggleService:ToggleService,public render:Renderer2,public observer:BreakpointObserver,public route:Router) { }
 
 
   
   ngAfterViewInit(){
-    this.observer.observe(['(max-width:768px)']).subscribe((res)=>{
+    this.observer.observe(['(max-width:1024px)']).subscribe((res)=>{
       if(res.matches){
         this.douts=true;
+        this.toggleService.sending(this.value)
       }else{
         this.douts=false;
       }
@@ -35,7 +37,12 @@ export class NavigationComponent implements OnInit,AfterViewInit {
   ngOnInit(): void {
   }
 
-
+  userLogout(){
+    if(confirm("You need logout")){
+      localStorage.removeItem("username");
+      this.route.navigate(["/login"])
+    }
+  }
 
   toggle(){
     this.value=!this.value;

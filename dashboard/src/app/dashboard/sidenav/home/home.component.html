@@ -1,21 +1,22 @@
 
-<div class="container">
+<div class="containers">
     <div class="content">
         <div class="chart">
             <mat-card class="charts">
-                <mat-card-content class="top-content">
+                <mat-card-content class="top-contents">
                         <p>Total Orders:<span>{{orders}}</span></p>
                     <!-- <button mat-raised-button>{{date}}<mat-icon>keyboard_arrow_down</mat-icon></button> -->
                     <!-- <mat-form-field class="example-full-width" appearance="fill"> -->
                         <!-- <mat-label>Choose a date</mat-label> -->
                         <!-- <input type="text" > -->
                     <div>
-                        <mat-datepicker #picker></mat-datepicker>
+                        <mat-datepicker #picker1></mat-datepicker>
                         <input  matInput 
-                        [matDatepicker]="picker" 
-                        name="startDate" 
-                        [(ngModel)]="model.startDate" 
-                        (click)="picker.open()" />
+                        [matDatepicker]="picker1" 
+                        name="startDate1" 
+                        [ngModel]="model1.startDate1"
+                        (ngModelChange)="model1.startDate1=$event"
+                        (click)="picker1.open()" />
                         <!-- <mat-icon matSuffix>keyboard_arrow_down</mat-icon> -->
                     </div>
                       <!-- </mat-form-field> -->
@@ -27,17 +28,17 @@
         </div>
         <div class="chart">
             <mat-card class="charts">
-                <mat-card-content class="top-content">
+                <mat-card-content class="top-contents">
                     <p>Collections</p>
                     <!-- <button mat-raised-button>{{date}}<mat-icon>keyboard_arrow_down</mat-icon></button> -->
                     <div>
-                        <mat-datepicker #picker></mat-datepicker>
+                        <mat-datepicker #picker2></mat-datepicker>
                         <input  matInput 
-                        [matDatepicker]="picker" 
+                        [matDatepicker]="picker2" 
                         name="startDate" 
-                        [(ngModel)]="model.startDate" 
-                        (click)="picker.open()" />
-                        <mat-icon matSuffix>keyboard_arrow_down</mat-icon>
+                        [(ngModel)]="model2.startDate2" 
+                        (click)="picker2.open()" />
+                        <!-- <mat-icon matSuffix>keyboard_arrow_down</mat-icon> -->
                     </div>
                 </mat-card-content>
                 <mat-card-content class="chart-width">
@@ -47,17 +48,17 @@
         </div>
         <div class="chart">
             <mat-card class="charts">
-                <mat-card-content class="top-content">
+                <mat-card-content class="top-contents">
                     <p>Onboarded :<span>{{onboarded}}</span></p>
                     <!-- <button mat-raised-button>{{date}}<mat-icon>keyboard_arrow_down</mat-icon></button> -->
                     <div>
-                        <mat-datepicker #picker></mat-datepicker>
+                        <mat-datepicker #picker3></mat-datepicker>
                         <input  matInput 
-                        [matDatepicker]="picker" 
+                        [matDatepicker]="picker3" 
                         name="startDate" 
-                        [(ngModel)]="model.startDate" 
-                        (click)="picker.open()" />
-                        <mat-icon matSuffix>keyboard_arrow_down</mat-icon>
+                        [(ngModel)]="model3.startDate3" 
+                        (click)="picker3.open()" />
+                        <!-- <mat-icon matSuffix>keyboard_arrow_down</mat-icon> -->
                     </div>
                 </mat-card-content>
                 <mat-card-content>
@@ -67,18 +68,18 @@
         </div>
         <div class="chart">
             <mat-card class="charts">
-                <mat-card-content class="top-content">
+                <mat-card-content class="top-contents">
                     <p>Total Orders:<span>{{orders}}</span></p>
                     <!-- <button mat-raised-button>{{date}}<mat-icon>keyboard_arrow_down</mat-icon></button> -->
                     <div>
                         <!-- <label> -->
-                        <mat-datepicker #picker></mat-datepicker>
+                        <mat-datepicker #picker4></mat-datepicker>
                             <input  matInput 
-                            [matDatepicker]="picker" 
+                            [matDatepicker]="picker4" 
                             name="startDate" 
-                            [(ngModel)]="model.startDate" 
-                            (click)="picker.open()" />
-                            <mat-icon matSuffix>keyboard_arrow_down</mat-icon>
+                            [(ngModel)]="model4.startDate4" 
+                            (click)="picker4.open()" />
+                            <!-- <mat-icon matSuffix>keyboard_arrow_down</mat-icon> -->
                         <!-- </label> -->
                     </div>
                 </mat-card-content>
@@ -89,9 +90,18 @@
         </div>
         <div class="chart">
             <mat-card class="charts">
-                <mat-card-content class="top-content">
+                <mat-card-content class="top-contents">
                     <p>User Logins : <span>{{login}}</span></p>
-                    <button mat-raised-button>{{date}}<mat-icon>keyboard_arrow_down</mat-icon></button>
+                    <!-- <button mat-raised-button>{{date}}<mat-icon>keyboard_arrow_down</mat-icon></button> -->
+                    <div>
+                        <mat-datepicker #picker5></mat-datepicker>
+                        <input  matInput 
+                        [matDatepicker]="picker5" 
+                        name="startDate" 
+                        [(ngModel)]="model5.startDate5" 
+                        (click)="picker5.open()" />
+                        <!-- <mat-icon matSuffix>keyboard_arrow_down</mat-icon> -->
+                    </div>
                 </mat-card-content>
                 <mat-card-content>
                     <div class="login">
@@ -119,17 +129,17 @@
         </div>
         <div class="chart">
             <mat-card class="charts">
-                <mat-card-content class="top-content">
+                <mat-card-content class="top-contents">
                     <p>Patients : <span>{{patients}}</span></p>
                     <!-- <button mat-raised-button >{{date}}<mat-icon>keyboard_arrow_down</mat-icon></button> -->
                     <div>
-                        <mat-datepicker #picker></mat-datepicker>
+                        <mat-datepicker #picker6></mat-datepicker>
                         <input  matInput 
-                        [matDatepicker]="picker" 
+                        [matDatepicker]="picker6" 
                         name="startDate" 
-                        [(ngModel)]="model.startDate" 
-                        (click)="picker.open()" />
-                        <mat-icon matSuffix>keyboard_arrow_down</mat-icon>
+                        [(ngModel)]="model6.startDate6" 
+                        (click)="picker6.open()" />
+                        <!-- <mat-icon matSuffix>keyboard_arrow_down</mat-icon> -->
                     </div>
                 </mat-card-content>
                 <mat-card-content>

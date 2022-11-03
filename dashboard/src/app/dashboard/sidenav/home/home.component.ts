@@ -1,5 +1,5 @@
 import { identifierName } from '@angular/compiler';
-import { Component, ComponentRef, OnInit } from '@angular/core';
+import { AfterViewChecked, Component, OnInit } from '@angular/core';
 import { DefaultTitleStrategy } from '@angular/router';
 import { Chart,registerables } from "node_modules/chart.js"
 import { ChartServiceService } from 'src/app/service/chart-service.service';
@@ -11,7 +11,7 @@ Chart.register(...registerables);
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit,AfterViewChecked {
 
   //card inputs
 
@@ -56,7 +56,12 @@ export class HomeComponent implements OnInit {
 
   //data of the button
 
-  public model:any={startDate:new Date()}
+  public model1:any={startDate1:new Date()}
+  public model2:any={startDate2:new Date()}
+  public model3:any={startDate3:new Date()}
+  public model4:any={startDate4:new Date()}
+  public model5:any={startDate5:new Date()}
+  public model6:any={startDate6:new Date()}
 
   public today=new Date();
   public dd=String(this.today.getDate()).padStart(2,"0");
@@ -65,8 +70,14 @@ export class HomeComponent implements OnInit {
 
   public date=this.dd+"/"+this.mm+"/"+this.yyyy;
 
+
   constructor(public service:ChartServiceService) { 
     // console.log(this.data);
+    // console.log(this.model.startDate)
+  }
+
+  ngAfterViewChecked(): void {
+    // console.log(this.model1.startDate1);
   }
 
   ngOnInit(): void {
@@ -167,6 +178,14 @@ export class HomeComponent implements OnInit {
         respones:true,
         layout: {
             padding: 4,
+        },
+        plugins:{
+          legend:{
+            position:'right',
+            labels:{
+              boxWidth:10
+            }
+          }
         }
       }
 
@@ -191,14 +210,12 @@ export class HomeComponent implements OnInit {
       },
       options: {
         plugins: {
-            legend: {
-                labels: {
-                    // This more specific font property overrides the global property
-                    font: {
-                        size: 8
-                    }
-                }
+          legend:{
+            position:'right',
+            labels:{
+              boxWidth:10
             }
+          }
         }
     },
   });

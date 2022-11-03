@@ -23,7 +23,7 @@ export class SidenavComponent implements OnInit,AfterViewInit{
   }
 
   ngAfterViewInit(){
-    this.observer.observe(['(max-width:768px)']).subscribe((res)=>{
+    this.observer.observe(['(max-width:1024px)']).subscribe((res)=>{
       if(res.matches){
         this.value=false;
         this.input="over"

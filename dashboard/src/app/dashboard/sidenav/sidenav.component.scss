@@ -13,7 +13,7 @@ $light-primary:#2c566d23;
         mat-drawer{
             width:15%;
             background-color: $light-primary;
-           .nav{
+           .navs{
             height: 6vh;
                 .button{
                     cursor: pointer;
@@ -24,7 +24,7 @@ $light-primary:#2c566d23;
                     justify-content: center;
                     align-items: center;
                     color: $primary;
-                    font-weight: 500;
+                    font-weight: 400;
                     border-bottom: 1px solid $primary;
                     mat-icon{
                         text-align: end;
@@ -35,6 +35,7 @@ $light-primary:#2c566d23;
                         width: 75%;
                         margin-top:8px;
                         text-align: left
+                        
                     }
                 }
            } 
@@ -53,7 +54,29 @@ $light-primary:#2c566d23;
 .toggle{
     display: block;
 }
+//meida query for the tab view 
 
+@media (min-width:768px) and (max-width:1024px){
+    .sidenav{
+        mat-drawer-container{
+            mat-drawer{
+                // display: none;
+                width:30%;
+                position: absolute;
+                background-color: $primary;
+                .navs{
+                    .button{
+                        color: $secondary;
+                        border-bottom: .5px solid $secondary;
+                        // border-top: .5px solid $secondary;
+                    }
+                }
+            }
+        } 
+    }
+}
+
+//media query for the mobile view 
 @media (min-width:375px) and (max-width:767px){
     .sidenav{
         mat-drawer-container{
@@ -62,7 +85,7 @@ $light-primary:#2c566d23;
                 width:50%;
                 position: absolute;
                 background-color: $primary;
-                .nav{
+                .navs{
                     .button{
                         color: $secondary;
                         border-bottom: .5px solid $secondary;

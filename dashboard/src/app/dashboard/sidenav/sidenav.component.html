@@ -2,7 +2,7 @@
 <div class="sidenav">
     <mat-drawer-container class="example-container">
         <mat-drawer [mode]="input" [opened]="value" #sidenav>
-            <div class="nav">
+            <div class="navs">
                 <div class="button" *ngFor="let title of titles">
                     <mat-icon>{{title.icon}}</mat-icon>
                     <p (click)="add(title)">{{title.title}}</p>

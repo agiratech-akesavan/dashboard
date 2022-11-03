@@ -10,21 +10,33 @@
                         <div class="login-heading">
                             <h3>welcome to <span class="login-companyname">SAHINS</span></h3>
                         </div>
-                        <form>
-                            <mat-form-field class="formField" appearance="outline">
+                        <form [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)">
+                            <!-- <mat-form-field class="formField" appearance="outline"> -->
                             <!-- <div style="display: flex; background-color: rgba(4, 55, 82, 0.2);"> -->
-                                <mat-icon matSuffix>person</mat-icon>
-                                <mat-label>User Name</mat-label>
-                                <input matInput placeholder="User Name">
+                                <!-- <div> -->
+                                    <!-- <mat-icon matSuffix>person</mat-icon> -->
+                                    <!-- <mat-label>User Name</mat-label> -->
+                                    <!-- <input type="text" matInput placeholder="User Name" name="username" formControlName="username"> -->
+                                    <div class="input-group flex-nowrap" style="margin-bottom: 1.3rem;">
+                                        <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-user"></i></span>
+                                        <input type="text" class="form-control  shadow-none" placeholder="Username" formControlName="username" aria-label="Username" aria-describedby="addon-wrapping">
+                                    </div>  
+                                <!-- </div> -->
                             <!-- </div> -->
-                        </mat-form-field>
-                        <mat-form-field class="formField" appearance="outline">
-                            <mat-icon matSuffix>lock</mat-icon>
-                            <mat-label>Password</mat-label>
-                            <input matInput>
-                        </mat-form-field>
-                        <span>Forget Password?</span>
-                        <button (click)="router()" mat-raised-button disableRipple [routerLink]="['/dashboard']" >Login</button>
+                            <!-- </mat-form-field> -->
+                            <!-- <span *ngIf="username"></span> -->
+                        <!-- <mat-form-field class="formField" appearance="outline"> -->
+                            <!-- <mat-icon matSuffix>lock</mat-icon> -->
+                            <!-- <mat-label>Password</mat-label> -->
+                            <!-- <input matInput formControlName="password"> -->
+                            <div class="input-group flex-nowrap" style="margin-bottom: .8rem;">
+                                <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-unlock-keyhole"></i></span>
+                                <input type="text" class="form-control  shadow-none" formControlName="password" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+                            </div> 
+                        <!-- </mat-form-field> -->
+                        <span >Forget Password?</span>
+                        <button (click)="router()" mat-raised-button disableRipple  [routerLink]="['/dashboard']" [disabled]="loginForm.invalid">Login</button>
+                        <!-- <button (click)="router()" mat-raised-button disableRipple  [disabled]="loginForm.invalid">Login</button> -->
                     </form>
                 </div>
                 </div>

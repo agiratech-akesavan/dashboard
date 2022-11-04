@@ -19,8 +19,12 @@
                                     <!-- <input type="text" matInput placeholder="User Name" name="username" formControlName="username"> -->
                                     <div class="input-group flex-nowrap" style="margin-bottom: 1.3rem;">
                                         <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-user"></i></span>
-                                        <input type="text" class="form-control  shadow-none" placeholder="Username" formControlName="username" aria-label="Username" aria-describedby="addon-wrapping">
-                                    </div>  
+                                        <input type="text" class="form-control  shadow-none"  placeholder="Username" formControlName="username" aria-label="Username"  aria-describedby="addon-wrapping">
+                                    </div>
+                                    <div class="validation" *ngIf="username && username.invalid && username.touched">
+                                        <span *ngIf="username.errors?.['required']" class="validation-span">Please enter your UserName*</span>
+                                        <span *ngIf="username.errors?.['minlength'] || username.errors?.['maxlength']" class="validation-span">Please enter correct UserName*</span>
+                                    </div>
                                 <!-- </div> -->
                             <!-- </div> -->
                             <!-- </mat-form-field> -->
@@ -31,11 +35,15 @@
                             <!-- <input matInput formControlName="password"> -->
                             <div class="input-group flex-nowrap" style="margin-bottom: .8rem;">
                                 <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-unlock-keyhole"></i></span>
-                                <input type="text" class="form-control  shadow-none" formControlName="password" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+                                <input type="password" class="form-control  shadow-none" formControlName="password" placeholder="password" aria-label="Username" aria-describedby="addon-wrapping">
                             </div> 
+                            <div class="validation" *ngIf="password && password.invalid && password.touched">
+                                <span  class="validation-span" *ngIf="password.errors?.['required']">Please enter your Password*</span>
+                                <!-- <span  class="validation-span" *ngIf="password.errors?.['pattern']">Please enter your correct Password*</span> -->
+                            </div>
                         <!-- </mat-form-field> -->
-                        <span >Forget Password?</span>
-                        <button (click)="router()" mat-raised-button disableRipple  [routerLink]="['/dashboard']" [disabled]="loginForm.invalid">Login</button>
+                            <span class="forget-span" >Forget Password?</span>
+                        <button type="submit"  mat-raised-button disableRipple (click)="button()" [disabled]="loginForm.invalid">Login</button>
                         <!-- <button (click)="router()" mat-raised-button disableRipple  [disabled]="loginForm.invalid">Login</button> -->
                     </form>
                 </div>

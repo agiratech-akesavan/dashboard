@@ -39,7 +39,7 @@ export class NavigationComponent implements OnInit,AfterViewInit {
 
   userLogout(){
     if(confirm("You need logout")){
-      localStorage.removeItem("username");
+      localStorage.removeItem("token");
       this.route.navigate(["/login"])
     }
   }

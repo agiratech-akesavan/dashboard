@@ -56,8 +56,8 @@ $light-primary:#2c566d5d;
         form{
             // mat-form-field{
                 width:100%;
-                // padding: 0 !important;
-                div{
+                padding: 0 !important;
+                .input-group{
                     height:2.5rem;
                     // margin-top:1.3rem
                     // background-color: $light-primary;
@@ -82,16 +82,30 @@ $light-primary:#2c566d5d;
                         // margin-left:-2rem;
                     }
                     input:focus{
-                        // outline: none;
+                        outline: none;
                         padding: none;
                         border: none;
                     }
+                
                     mat-icon{
                         color:#043752;
                     }
                 }
+                .validation{
+                    margin-left: 2rem;
+                    margin-top: -.8rem;
+                    margin-bottom: .5rem;
+                    .validation-span{
+                        font-size: .8rem;
+                        font-weight: 500;
+                        color:red;
+                        margin-bottom:none;
+
+                    }
+                }
+
             // }
-            span{
+            .forget-span{
                 display: block;
                 position: relative;
                 float:right;
@@ -172,7 +186,7 @@ $light-primary:#2c566d5d;
         .login{
             background-color: #043752;
             .login-content{
-                height: 50vh;
+                height: 70vh;
                 border:2px solid #043752;
             }
         }

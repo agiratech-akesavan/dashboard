@@ -16,7 +16,7 @@ export class AuthServiceService {
 
   sendData(data:logindetail){
     return this.http.post<logindetail>("https://jsonplaceholder.typicode.com/posts",data);
-    // localStorage.setItem("userName",data.username);
+    // localStorage.setItem("token",data.username);
   }
 
 }

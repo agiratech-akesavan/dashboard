@@ -13,23 +13,27 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanDeactivate<u
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if(localStorage.getItem("username") == null){
+    if(localStorage.getItem("token") == null){
       return true
     }else{
       this.route.navigate(['/dashboard'])
       return false
     }
+      // return true
+    // return this.authentication();
   }
   canActivateChild(
     childRoute: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if(localStorage.getItem("username") != null){
+    if(localStorage.getItem("token") != null){
+      // this.route.navigate(['/dashboard']);
       return true
     }else{
       this.route.navigate(['/login']);
       return false
     }
-    // return true
+    // return false
+    // return this.authentication();
   }
   canDeactivate(
     component: unknown,
@@ -43,4 +47,14 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanDeactivate<u
     segments: UrlSegment[]): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return true;
   }
+
+  // authentication(){
+  //   if(localStorage.getItem("token")!=null){
+  //     this.route.navigate(["/login"])
+  //     return true;
+  //   }else{
+  //     this.route.navigate(['/dashboard'])
+  //     return true
+  //   }
+  // }
 }

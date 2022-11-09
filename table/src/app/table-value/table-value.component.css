@@ -1,7 +1,13 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 .containers{
-    margin:2rem;
-    padding:2rem;
     height: 100vh;
+}
+.content{
+    padding:5rem;
 }
 .mat-checkbox{
     padding-left: 2px;
@@ -28,20 +34,38 @@
     margin:0 5px;
 }
 .table{
-    height:300px;
+    display: flex;
+    flex-direction: column;
+    min-width:300px;
+    height: 300px;
+
 }
-table{
-    margin-top: 3rem;
-    width:100%;
-    overflow-y: scroll;
+mat-table{
+    /* width: 100%; */
+    overflow: auto;
+    /* margin-top: 3rem; */
+    /* table-layout: fixed; */
+    /* overflow: hidden; */
 }
 th{
-    padding-top: 12px;
-  padding-bottom: 12px;
-  font-size: 1rem;
-  text-align: left;
-  background-color: #04AA6D;
-  color: white;
+    font-size: 1rem;
+    text-align: center;
+    background-color: #04AA6D;
+    color: white;
+    width:2%;
+    height:0;
+}
+th.mat-header-cell:first-of-type{
+    padding:22.5px 0px;
+    padding-left:24px;
+}
+tr.mat-header-row{
+    height:45px;
+}
+tr.mat-row, tr.mat-footer-row {
+    margin-top:20px;
+    height: 45px;
+    /* text-align: center; */
 }
 td{
     font-size: .9rem;

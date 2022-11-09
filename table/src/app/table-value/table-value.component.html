@@ -32,8 +32,8 @@
             </div>
             <div fxLayout="row" fxLayoutGap="2%">
                 <mat-form-field  fxFlex="14%" class="example-full-width" appearance="fill">
-                    <mat-label>Company Type</mat-label>
-                        <input type="text" matInput placeholder="companyType" [formControl]="designationFormControl" [matAutocomplete]="Designation">
+                    <mat-label>Designation</mat-label>
+                        <input type="text" matInput placeholder="Designation" [formControl]="designationFormControl" [matAutocomplete]="Designation">
                     <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
                     <mat-icon matSuffix>keyboard_arrow_down</mat-icon>
                     <mat-autocomplete autoActiveFirstOption #Designation="matAutocomplete" (optionSelected)="Selecteddesignation($event.option.value)">
@@ -55,74 +55,80 @@
                 </mat-form-field> -->
                 <mat-form-field  fxFlex="14%" class="example-full-width" appearance="fill">
                     <mat-label>City</mat-label>
-                        <input type="text" matInput placeholder="city">
+                    <input type="text" matInput placeholder="city" [formControl]="cityFormControl" [matAutocomplete]="city">
                     <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+                    <mat-icon matSuffix>keyboard_arrow_down</mat-icon>
+                    <mat-autocomplete autoActiveFirstOption #city="matAutocomplete" (optionSelected)="Selectedcity($event.option.value)">
+                        <mat-option *ngFor="let option of finalcity | async" [value]="option.city"> 
+                            {{option.city}}
+                        </mat-option>
+                    </mat-autocomplete>
                 </mat-form-field>
             </div>
         </form>
-    </div>
-    <div class="table">
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+        <div class="table">
+            <mat-table  matSort [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
 
             <ng-container matColumnDef="id">
-              <th mat-header-cell *matHeaderCellDef> No. </th>
-              <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                <th mat-header-cell *matHeaderCellDef> No. </th>
+                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
             </ng-container>
-          
-            <ng-container matColumnDef="firstname">
-              <th mat-header-cell *matHeaderCellDef> First Name </th>
-              <td mat-cell *matCellDef="let element"> {{element.first_name}} </td>
+            
+            <ng-container matColumnDef="first_name">
+                <th mat-header-cell mat-sort-header *matHeaderCellDef> First Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.first_name}} </td>
             </ng-container>
-          
-            <ng-container matColumnDef="lastname">
-              <th mat-header-cell *matHeaderCellDef> Last Name </th>
-              <td mat-cell *matCellDef="let element"> {{element.last_name}} </td>
+            
+            <ng-container matColumnDef="last_name">
+                <th mat-header-cell mat-sort-header *matHeaderCellDef> Last Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.last_name}} </td>
             </ng-container>
-          
-            <ng-container matColumnDef="companyname">
-              <th mat-header-cell *matHeaderCellDef> company Name </th>
-              <td mat-cell *matCellDef="let element"> {{element.company_name}} </td>
+            
+            <ng-container matColumnDef="company_name">
+                <th mat-header-cell mat-sort-header *matHeaderCellDef> company Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.company_name}} </td>
             </ng-container>
-
+            
             <ng-container matColumnDef="designation">
-                <th mat-header-cell *matHeaderCellDef> Designation </th>
+                <th mat-header-cell mat-sort-header *matHeaderCellDef> Designation </th>
                 <td mat-cell *matCellDef="let element"> {{element.designation}} </td>
             </ng-container>
-
+            
             <ng-container matColumnDef="email">
-                <th mat-header-cell *matHeaderCellDef> Email </th>
+                <th mat-header-cell mat-sort-header *matHeaderCellDef> Email </th>
                 <td mat-cell *matCellDef="let element"> {{element.email}} </td>
             </ng-container>
-
+            
             <ng-container matColumnDef="address">
-                <th mat-header-cell *matHeaderCellDef> Address </th>
+                <th mat-header-cell mat-sort-header *matHeaderCellDef> Address </th>
                 <td mat-cell *matCellDef="let element"> {{element.address}} </td>
             </ng-container>
-
-            <ng-container matColumnDef="phone">
-                <th mat-header-cell *matHeaderCellDef> Phone  </th>
+            
+            <ng-container matColumnDef="phone_number">
+                <th mat-header-cell mat-sort-header *matHeaderCellDef> Phone  </th>
                 <td mat-cell *matCellDef="let element"> {{element.phone_number}} </td>
             </ng-container>
-
-
+            
+            
             <ng-container matColumnDef="city">
-                <th mat-header-cell *matHeaderCellDef> city </th>
+                <th mat-header-cell mat-sort-header *matHeaderCellDef> city </th>
                 <td mat-cell *matCellDef="let element"> {{element.city}} </td>
             </ng-container>
-
-            <ng-container matColumnDef="modified">
-                <th mat-header-cell *matHeaderCellDef> Last Modified </th>
+            
+            <ng-container matColumnDef="date">
+                <th mat-header-cell mat-sort-header *matHeaderCellDef> Last Modified </th>
                 <td mat-cell *matCellDef="let element"> {{element.date}} </td>
             </ng-container>
-
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            
+            <tr mat-header-row *matHeaderRowDef="displayedColumns;sticky:true"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-          </table>
+        </mat-table>
         <mat-paginator
-          #paginator  
-          [pageSize]="5"
-          [pageSizeOptions]="option"
-          >
-        </mat-paginator>
-    </div>
+        #paginator  
+        [pageSize]="5"
+        [pageSizeOptions]="option"
+        >
+    </mat-paginator>
+</div>
+</div>
 </div>

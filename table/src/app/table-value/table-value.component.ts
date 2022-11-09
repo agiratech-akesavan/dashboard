@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { combineAll, map, Observable, startWith } from 'rxjs';
+import { map, Observable, startWith } from 'rxjs';
 import { Detail } from '../detail';
 import { EmployeedetailService } from '../service/employeedetail.service';
 
@@ -13,9 +14,11 @@ import { EmployeedetailService } from '../service/employeedetail.service';
 })
 export class TableValueComponent implements OnInit {
 
+  @ViewChild(MatSort) sort!:MatSort;
+
   public data:any;
   public dataSource!:MatTableDataSource<any>;
-  public displayedColumns:string[]=["id","firstname","lastname","companyname","designation","email","address","phone","city","modified"]
+  public displayedColumns:string[]=["id","first_name","last_name","company_name","designation","email","address","phone_number","city","date"]
 
   public companyNameFormControl:any=new FormControl("");
   companyNameoptions!:Detail[];
@@ -25,7 +28,9 @@ export class TableValueComponent implements OnInit {
   designationoptions!:Detail[];
   Finaldesignation!:Observable<Detail[]>;
 
-
+  public cityFormControl:any=new FormControl("");
+  cityoptions!:Detail[];
+  finalcity!:Observable<Detail[]>;
 
   @ViewChild("paginator") paginator!:MatPaginator;
 
@@ -35,6 +40,7 @@ export class TableValueComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.postList();
     this.Finaldesignation=this.designationFormControl.valueChanges.pipe(
       startWith(""),
       map(item=>{
@@ -49,16 +55,25 @@ export class TableValueComponent implements OnInit {
         return company_name?this._CompanyNamefilter(company_name as string):this.companyNameoptions
       })
     )
-    this.postList();
+
+    this.finalcity=this.cityFormControl.valueChanges.pipe(
+      startWith(""),
+      map(item=>{
+        const city=item;
+        return city?this._cityFilter(city as string):this.cityoptions;
+      })
+    )
   }
 
   postList():void{
     this.service.getData().subscribe({
       next:(data:any)=>{
+        this.dataSource=new MatTableDataSource(data);
+        this.dataSource.sort=this.sort;
+        this.dataSource.paginator=this.paginator;
         this.companyNameoptions=data;
         this.designationoptions=data;
-        this.dataSource=new MatTableDataSource(data);
-        this.dataSource.paginator=this.paginator;
+        this.cityoptions=data;
       },
       error:(error)=>{
         console.log(error);
@@ -75,7 +90,12 @@ export class TableValueComponent implements OnInit {
     this.dataSource.filter=filter.trim().toLowerCase();
   }
   Selecteddesignation(value:any){
-    const filter=value
+    const filter=value;
+    this.dataSource.filter=filter.trim().toLowerCase();
+  }
+
+  Selectedcity(value:any){
+    const filter=value;
     this.dataSource.filter=filter.trim().toLowerCase();
   }
 
@@ -89,10 +109,14 @@ export class TableValueComponent implements OnInit {
     const designationfilterValue=name.toLocaleLowerCase();
     return this.designationoptions.filter(option => option.designation.toLocaleLowerCase().includes(designationfilterValue))
   }
+
+  private _cityFilter(name:string){
+    const cityfilterValue=name.toLocaleLowerCase();
+    return this.cityoptions.filter(option => option.city.toLocaleLowerCase().includes(cityfilterValue));
+  }
   
   searchName(search:Event){
     const filter=(search.target as HTMLInputElement).value
-    // console.log(filter);
     this.dataSource.filter=filter.trim().toLowerCase();
   }
 

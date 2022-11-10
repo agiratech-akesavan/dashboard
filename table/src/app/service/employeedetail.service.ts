@@ -13,6 +13,6 @@ export class EmployeedetailService {
   constructor(public http:HttpClient) { }
 
   getData():Observable<Detail[]>{
-    return this.http.get<Detail[]>("../../assets/employeedetail.json")
+    return this.http.get<Detail[]>("../../assets/employeedata.json")
   }
 }

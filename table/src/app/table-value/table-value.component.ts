@@ -3,22 +3,37 @@ import { FormControl } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { map, Observable, startWith } from 'rxjs';
+import { map, Observable, pipe, startWith } from 'rxjs';
 import { Detail } from '../detail';
 import { EmployeedetailService } from '../service/employeedetail.service';
+import { PageEvent } from '@angular/material/paginator';
+import { MatPaginatorIntl } from "@angular/material/paginator"
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-table-value',
   templateUrl: './table-value.component.html',
   styleUrls: ['./table-value.component.css']
 })
-export class TableValueComponent implements OnInit {
+export class TableValueComponent extends MatPaginatorIntl implements OnInit {
+
+
+  constructor( public service:EmployeedetailService,public route: Router) {
+    super();
+    this.getAndInitTranslations();
+  }
 
   @ViewChild(MatSort) sort!:MatSort;
 
+  public names:Array<any>=[];
+  removeDuplicatesArrayById: Array<Detail> = [];
+  removeDuplicateCity:Array<Detail>=[]
+  removeDuplicateCompanyName:Array<Detail>=[]
+
+
   public data:any;
   public dataSource!:MatTableDataSource<any>;
-  public displayedColumns:string[]=["id","first_name","last_name","company_name","designation","email","address","phone_number","city","date"]
+  public displayedColumns:string[]=["e_id","first_name","last_name","company_name","designation","email","address","phone","city","detail"]
 
   public companyNameFormControl:any=new FormControl("");
   companyNameoptions!:Detail[];
@@ -34,13 +49,23 @@ export class TableValueComponent implements OnInit {
 
   @ViewChild("paginator") paginator!:MatPaginator;
 
-  public option:number[]=[2,5,10]
+  public pageSizeOptions:number[]=[2,5,10]
+  pageEvent!: PageEvent;
 
-  constructor( public service:EmployeedetailService, ) {
+  setPageSizeOptions(setPageSizeOptionsInput: string) {
+    if (setPageSizeOptionsInput) {
+      this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
+    }
+  }
+
+  getAndInitTranslations(){
+    this.itemsPerPageLabel = "Row :";
   }
 
   ngOnInit(): void {
+
     this.postList();
+
     this.Finaldesignation=this.designationFormControl.valueChanges.pipe(
       startWith(""),
       map(item=>{
@@ -52,7 +77,7 @@ export class TableValueComponent implements OnInit {
       startWith(""),
       map(item=>{
         const company_name=item;
-        return company_name?this._CompanyNamefilter(company_name as string):this.companyNameoptions
+        return company_name?this._CompanyNamefilter(company_name as string,this.companyNameoptions):this.companyNameoptions
       })
     )
 
@@ -71,35 +96,39 @@ export class TableValueComponent implements OnInit {
         this.dataSource=new MatTableDataSource(data);
         this.dataSource.sort=this.sort;
         this.dataSource.paginator=this.paginator;
+
         this.companyNameoptions=data;
         this.designationoptions=data;
         this.cityoptions=data;
+        this.names=data;
       },
       error:(error)=>{
         console.log(error);
       },
       complete:()=>{
-        console.log("completed")
-        // console.log(this.companyNameoptions);
-      }
+
+        // console.log(this.designationoptions)
+        // console.log("completed")
+ 
+
+        this.removeDuplicatesArrayById = this.removeDuplicates(this.names, "designation")
+        this.removeDuplicateCity=this.removeDuplicates(this.names,"city");
+        this.removeDuplicateCompanyName=this.removeDuplicates(this.names,"company_name")
+    
+        this.designationoptions=this.removeDuplicatesArrayById;
+        this.cityoptions=this.removeDuplicateCity;
+        this.companyNameoptions=this.removeDuplicateCompanyName;  
+       
+        }
     });
   }
 
-  Selectedcompanyname(value:any){
-    const filter=value;
-    this.dataSource.filter=filter.trim().toLowerCase();
-  }
-  Selecteddesignation(value:any){
-    const filter=value;
-    this.dataSource.filter=filter.trim().toLowerCase();
+
+  Selected(value:any){
+    this.dataSource.filter=value.trim().toLowerCase();
   }
 
-  Selectedcity(value:any){
-    const filter=value;
-    this.dataSource.filter=filter.trim().toLowerCase();
-  }
-
-  private _CompanyNamefilter(name:string){
+  private _CompanyNamefilter(name:string,company:any){
     const filterValue=name.toLocaleLowerCase();
     return this.companyNameoptions.filter(option => option.company_name.toLocaleLowerCase().includes(filterValue))
   }
@@ -120,7 +149,14 @@ export class TableValueComponent implements OnInit {
     this.dataSource.filter=filter.trim().toLowerCase();
   }
 
-  
 
+  removeDuplicates(myArray:any, Prop:any) {
+    return myArray.filter((obj:any, pos:any, arr:any) => {
+      return arr.map((mapObj:any) => mapObj[Prop]).indexOf(obj[Prop]) === pos;
+    });
+  }
 
+  employeedetail(value:any){
+    this.route.navigate(["employee/",value])
+  }
 }

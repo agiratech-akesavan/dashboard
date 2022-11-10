@@ -1,12 +1,14 @@
 export interface Detail {
-    id:number,
+    e_id:number,
     first_name:string,
     last_name:string,
     email:string,
     company_name:string,
     designation:string,
     address:string,
-    phone_number:string,
-    date:string,
-    city:string
+    phone:string,
+    d_o_b:string,
+    city:string,
+    image:any,
+    gender:string,
 }

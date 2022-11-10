@@ -3,8 +3,8 @@
         <form class="form">
             <div fxLayout="row" fxLayoutGap="2%">
                 <mat-form-field  fxFlex="30%" class="example-full-width" appearance="fill">
-                    <mat-label>Search By Contact Name</mat-label>
-                        <input type="text" matInput placeholder="Search By Contact Name" (keyup)="searchName($event)">
+                    <mat-label>Search By First Name</mat-label>
+                        <input type="text" matInput placeholder="Search By First Name" (keyup)="searchName($event)">
                     <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
                 </mat-form-field>
                 <section fxLayout="row" fxLayoutAlign="space-around center">
@@ -20,10 +20,10 @@
             <div fxLayout="row" fxLayoutGap="2%">
                 <mat-form-field  fxFlex="30%" class="example-full-width" appearance="fill">
                     <mat-label>Company Name</mat-label>
-                        <input type="text" matInput placeholder="company name" [formControl]="companyNameFormControl" [matAutocomplete]="companyname">
+                        <input type="text" matInput placeholder="company name" [formControl]="companyNameFormControl" [matAutocomplete]="companyname" (keyup)="searchName($event)">
                     <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
                     <mat-icon matSuffix>keyboard_arrow_down</mat-icon>
-                    <mat-autocomplete autoActiveFirstOption #companyname="matAutocomplete" (optionSelected)="Selectedcompanyname($event.option.value)">
+                    <mat-autocomplete autoActiveFirstOption #companyname="matAutocomplete" (optionSelected)="Selected($event.option.value)">
                         <mat-option *ngFor="let option of  Finalcompanyname | async" [value]="option.company_name">
                           {{option.company_name}}
                         </mat-option>
@@ -33,10 +33,10 @@
             <div fxLayout="row" fxLayoutGap="2%">
                 <mat-form-field  fxFlex="14%" class="example-full-width" appearance="fill">
                     <mat-label>Designation</mat-label>
-                        <input type="text" matInput placeholder="Designation" [formControl]="designationFormControl" [matAutocomplete]="Designation">
+                        <input type="text" matInput placeholder="Designation" [formControl]="designationFormControl" [matAutocomplete]="Designation" (keyup)="searchName($event)">
                     <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
                     <mat-icon matSuffix>keyboard_arrow_down</mat-icon>
-                    <mat-autocomplete autoActiveFirstOption #Designation="matAutocomplete" (optionSelected)="Selecteddesignation($event.option.value)">
+                    <mat-autocomplete autoActiveFirstOption #Designation="matAutocomplete" (optionSelected)="Selected($event.option.value)">
                         <mat-option *ngFor="let option of Finaldesignation | async" [value]="option.designation">
                           {{option.designation}}
                         </mat-option>
@@ -55,10 +55,10 @@
                 </mat-form-field> -->
                 <mat-form-field  fxFlex="14%" class="example-full-width" appearance="fill">
                     <mat-label>City</mat-label>
-                    <input type="text" matInput placeholder="city" [formControl]="cityFormControl" [matAutocomplete]="city">
+                    <input type="text" matInput placeholder="city" [formControl]="cityFormControl" [matAutocomplete]="city" (keyup)="searchName($event)">
                     <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
                     <mat-icon matSuffix>keyboard_arrow_down</mat-icon>
-                    <mat-autocomplete autoActiveFirstOption #city="matAutocomplete" (optionSelected)="Selectedcity($event.option.value)">
+                    <mat-autocomplete autoActiveFirstOption #city="matAutocomplete" (optionSelected)="Selected($event.option.value)">
                         <mat-option *ngFor="let option of finalcity | async" [value]="option.city"> 
                             {{option.city}}
                         </mat-option>
@@ -67,11 +67,11 @@
             </div>
         </form>
         <div class="table">
-            <mat-table  matSort [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+        <mat-table  matSort [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
 
-            <ng-container matColumnDef="id">
-                <th mat-header-cell *matHeaderCellDef> No. </th>
-                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+            <ng-container matColumnDef="e_id">
+                <th mat-header-cell *matHeaderCellDef>E.No. </th>
+                <td mat-cell *matCellDef="let element"> {{element.e_id}} </td>
             </ng-container>
             
             <ng-container matColumnDef="first_name">
@@ -85,7 +85,7 @@
             </ng-container>
             
             <ng-container matColumnDef="company_name">
-                <th mat-header-cell mat-sort-header *matHeaderCellDef> company Name </th>
+                <th mat-header-cell mat-sort-header *matHeaderCellDef> Company Name </th>
                 <td mat-cell *matCellDef="let element"> {{element.company_name}} </td>
             </ng-container>
             
@@ -104,20 +104,24 @@
                 <td mat-cell *matCellDef="let element"> {{element.address}} </td>
             </ng-container>
             
-            <ng-container matColumnDef="phone_number">
+            <ng-container matColumnDef="phone">
                 <th mat-header-cell mat-sort-header *matHeaderCellDef> Phone  </th>
-                <td mat-cell *matCellDef="let element"> {{element.phone_number}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
             </ng-container>
             
             
             <ng-container matColumnDef="city">
-                <th mat-header-cell mat-sort-header *matHeaderCellDef> city </th>
+                <th mat-header-cell mat-sort-header *matHeaderCellDef> City </th>
                 <td mat-cell *matCellDef="let element"> {{element.city}} </td>
             </ng-container>
             
-            <ng-container matColumnDef="date">
-                <th mat-header-cell mat-sort-header *matHeaderCellDef> Last Modified </th>
-                <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+            <!-- <ng-container matColumnDef="d_o_b">
+                <th mat-header-cell mat-sort-header *matHeaderCellDef> DOB </th>
+                <td mat-cell *matCellDef="let element"> {{element.d_o_b}} </td>
+            </ng-container> -->
+            <ng-container matColumnDef="detail">
+                <th mat-header-cell *matHeaderCellDef> Detail </th>
+                <td mat-cell *matCellDef="let element"><button mat-raised-button class="view-button" (click)="employeedetail(element.e_id)">View</button></td>
             </ng-container>
             
             <tr mat-header-row *matHeaderRowDef="displayedColumns;sticky:true"></tr>
@@ -126,7 +130,10 @@
         <mat-paginator
         #paginator  
         [pageSize]="5"
-        [pageSizeOptions]="option"
+        [pageSizeOptions]="pageSizeOptions"
+        (page)="pageEvent = $event"
+        aria-label="Select page"
+        showFirstLastButtons
         >
     </mat-paginator>
 </div>

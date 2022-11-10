@@ -1,0 +1,56 @@
+<div class="containers">
+    <div class="overlay">
+        <div class="content" fxLayout="row" fxLayoutGap="2%">
+            <div class="id" fxFlex="25%" fxFlex.sm="40%" fxFlex.ls-sm="100%" fxFlexFill>
+                <div class="id-image">
+                <div class="image">
+                    <img src="../../assets/image/teamwork.png">
+                </div>
+                <h3>{{employee.first_name}} {{employee.last_name}}</h3>
+            </div>
+            <div class="id-detail">
+                <h5>Employee Id : <span>{{employee.e_id}}</span></h5>
+                <h5>Company Name : <span>{{employee.company_name}}</span></h5>
+                <h5>Degination : <span>{{employee.designation}}</span></h5>
+            </div>
+        </div>
+        <div class="information" fxLayout="column" fxLayoutGap="2%" fxFlex.lt.sm="100%" fxFlex="65%" fxFlex.sm="55%" >
+            <div class="general-info">
+                <h2> <i class="fa-solid fa-folder-open"></i> General Information</h2>
+                <div class="table">
+                    <table>
+                        <tr>
+                            <th>Employee Name</th>
+                            <td>{{employee.first_name}} {{employee.last_name}}</td>
+                        </tr>
+                        <tr>
+                            <th>Email Id</th>
+                            <td>{{employee.email}}</td>
+                        </tr>
+                        <tr>
+                            <th>Gender</th>
+                            <td>{{employee.gender}}</td>
+                        </tr>
+                        <tr>
+                            <th>Age</th>
+                            <td>{{employee.d_o_b}}</td>
+                        </tr>
+                        <tr>
+                            <th>Address</th>
+                            <td>{{employee.address}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="other-info">
+                <h2> <i class="fa-solid fa-folder-open"></i> Other Information</h2>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit magnam aut voluptatum adipisci. Animi similique ea omnis veniam xplicabo laborum asperiores nemo tempora inventore qui omnis! Iure nisi eum rerum aperiam aliquam tenetur sed aspernatur, 
+                    non pariatur. Ut ratione officia amet expedita atque doloribus! Esse, iure nobis.
+                </p>
+                <div class="back">
+                    <button class="back-button" mat-raised-button color="primary" (click)="backFunc()">Back</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

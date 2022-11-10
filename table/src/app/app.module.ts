@@ -9,11 +9,17 @@ import { AngularMaterialModule } from './material/angular-material/angular-mater
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { MatPaginatorIntl } from "@angular/material/paginator";
+import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';
+import { AgePipe } from './pipe/age.pipe'
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    TableValueComponent
+    TableValueComponent,
+    EmployeeDetailComponent,
+    AgePipe
   ],
   imports: [
     BrowserModule,
@@ -25,7 +31,12 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: MatPaginatorIntl, 
+      useClass: TableValueComponent
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

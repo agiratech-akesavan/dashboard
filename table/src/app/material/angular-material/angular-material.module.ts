@@ -7,7 +7,8 @@ import { MatAutocompleteModule } from "@angular/material/autocomplete";
 import  { MatIconModule } from "@angular/material/icon";
 import { MatTableModule } from "@angular/material/table";
 import { MatPaginatorModule } from "@angular/material/paginator";
-import { MatSortModule } from "@angular/material/sort"
+import { MatSortModule } from "@angular/material/sort";
+import { MatDialogModule } from "@angular/material/dialog"
 
 
 const material=[
@@ -20,6 +21,7 @@ const material=[
   MatTableModule,
   MatPaginatorModule,
   MatSortModule,
+  MatDialogModule
 ]  
 
 @NgModule({

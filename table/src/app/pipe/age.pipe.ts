@@ -1,4 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { toArray } from 'rxjs';
 
 @Pipe({
   name: 'age'
@@ -8,7 +9,9 @@ export class AgePipe implements PipeTransform {
   public dob:any;
   public today:any=new Date();
 
-  transform(value:any){
+  transform(value:any):any{
+
+    if(value != null){
     let dob = (value);
     let day = Number(dob.substr(0, 2));
     let month=Number(dob.substr(3,2)-1);
@@ -17,10 +20,10 @@ export class AgePipe implements PipeTransform {
     let age = today.getFullYear() - year;
     if (today.getMonth() < month || (today.getMonth() == month && today.getDate() < day)) {
       age--;
-    }
-
+    }    
     return age;
-
+  }
+    
   }
 
 }

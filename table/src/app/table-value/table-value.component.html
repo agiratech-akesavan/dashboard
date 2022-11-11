@@ -2,7 +2,7 @@
     <div class="content">
         <form class="form">
             <div fxLayout="row" fxLayoutGap="2%">
-                <mat-form-field  fxFlex="30%" class="example-full-width" appearance="fill">
+                <mat-form-field  fxFlex="30%" fxFlex.sm="50%"   class="example-full-width" appearance="fill">
                     <mat-label>Search By First Name</mat-label>
                         <input type="text" matInput placeholder="Search By First Name" (keyup)="searchName($event)">
                     <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
@@ -18,7 +18,7 @@
                 </section>
             </div>
             <div fxLayout="row" fxLayoutGap="2%">
-                <mat-form-field  fxFlex="30%" class="example-full-width" appearance="fill">
+                <mat-form-field  fxFlex="30%" fxFlex.sm="50%" fxFlex.xs="50%" class="example-full-width" appearance="fill">
                     <mat-label>Company Name</mat-label>
                         <input type="text" matInput placeholder="company name" [formControl]="companyNameFormControl" [matAutocomplete]="companyname" (keyup)="searchName($event)">
                     <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
@@ -31,7 +31,7 @@
                 </mat-form-field>
             </div>
             <div fxLayout="row" fxLayoutGap="2%">
-                <mat-form-field  fxFlex="14%" class="example-full-width" appearance="fill">
+                <mat-form-field  fxFlex="14%" fxFlex.md="30%" fxFlex.sm="50%" fxFlex.xs="50%" class="example-full-width" appearance="fill">
                     <mat-label>Designation</mat-label>
                         <input type="text" matInput placeholder="Designation" [formControl]="designationFormControl" [matAutocomplete]="Designation" (keyup)="searchName($event)">
                     <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
@@ -53,7 +53,7 @@
                         </mat-option>
                     </mat-autocomplete>
                 </mat-form-field> -->
-                <mat-form-field  fxFlex="14%" class="example-full-width" appearance="fill">
+                <mat-form-field  fxFlex="14%" fxFlex.md="30%"  fxFlex.sm="50%" fxFlex.xs="50%" class="example-full-width" appearance="fill">
                     <mat-label>City</mat-label>
                     <input type="text" matInput placeholder="city" [formControl]="cityFormControl" [matAutocomplete]="city" (keyup)="searchName($event)">
                     <!-- <mat-hint>Errors appear instantly!</mat-hint> -->

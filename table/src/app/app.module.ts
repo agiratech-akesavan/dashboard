@@ -11,7 +11,8 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatPaginatorIntl } from "@angular/material/paginator";
 import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';
-import { AgePipe } from './pipe/age.pipe'
+import { AgePipe } from './pipe/age.pipe';
+import { EditDialogComponent } from './dialog/edit-dialog/edit-dialog.component'
 
 
 @NgModule({
@@ -19,8 +20,10 @@ import { AgePipe } from './pipe/age.pipe'
     AppComponent,
     TableValueComponent,
     EmployeeDetailComponent,
-    AgePipe
+    AgePipe,
+    EditDialogComponent
   ],
+  entryComponents:[EditDialogComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

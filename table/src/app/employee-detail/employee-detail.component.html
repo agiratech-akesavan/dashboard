@@ -33,13 +33,16 @@
                         </tr>
                         <tr>
                             <th>Age</th>
-                            <td>{{employee.d_o_b}}</td>
+                            <td>{{employee.d_o_b | age}}</td>
                         </tr>
                         <tr>
                             <th>Address</th>
-                            <td>{{employee.address}}</td>
+                            <td>{{employee.address}}, {{employee.city}}</td>
                         </tr>
                     </table>
+                    <div class="edit">
+                        <button class="edit-button" mat-raised-button color="primary" (click)="dialogopen()">Edit</button>
+                    </div>
                 </div>
             </div>
             <div class="other-info">

@@ -89,7 +89,12 @@ td{
     font-size: 1rem;
     font-weight: 400;
 }
-
+.edit{
+    width: 100%;
+    display: flex;
+    justify-content:flex-end;
+    margin-top: 1rem;
+}
 .other-info{
     /* margin-top: 1rem; */
     padding: 1rem;
@@ -106,10 +111,4 @@ td{
     text-align: justify;  
     font-weight: 400;
     line-height: 1.7rem;
-}
-
-@media (max-width:768px){
-    .containers{
-        height: 120vh;
-    }
 }

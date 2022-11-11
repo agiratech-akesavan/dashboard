@@ -23,7 +23,6 @@ export class TableValueComponent extends MatPaginatorIntl implements OnInit {
     this.getAndInitTranslations();
   }
 
-  @ViewChild(MatSort) sort!:MatSort;
 
   public names:Array<any>=[];
   removeDuplicatesArrayById: Array<Detail> = [];
@@ -48,6 +47,8 @@ export class TableValueComponent extends MatPaginatorIntl implements OnInit {
   finalcity!:Observable<Detail[]>;
 
   @ViewChild("paginator") paginator!:MatPaginator;
+  @ViewChild(MatSort) sort!:MatSort;
+
 
   public pageSizeOptions:number[]=[2,5,10]
   pageEvent!: PageEvent;
@@ -77,7 +78,7 @@ export class TableValueComponent extends MatPaginatorIntl implements OnInit {
       startWith(""),
       map(item=>{
         const company_name=item;
-        return company_name?this._CompanyNamefilter(company_name as string,this.companyNameoptions):this.companyNameoptions
+        return company_name?this._CompanyNamefilter(company_name as string):this.companyNameoptions
       })
     )
 
@@ -96,10 +97,6 @@ export class TableValueComponent extends MatPaginatorIntl implements OnInit {
         this.dataSource=new MatTableDataSource(data);
         this.dataSource.sort=this.sort;
         this.dataSource.paginator=this.paginator;
-
-        this.companyNameoptions=data;
-        this.designationoptions=data;
-        this.cityoptions=data;
         this.names=data;
       },
       error:(error)=>{
@@ -127,17 +124,17 @@ export class TableValueComponent extends MatPaginatorIntl implements OnInit {
   Selected(value:any){
     this.dataSource.filter=value.trim().toLowerCase();
   }
-
-  private _CompanyNamefilter(name:string,company:any){
-    const filterValue=name.toLocaleLowerCase();
-    return this.companyNameoptions.filter(option => option.company_name.toLocaleLowerCase().includes(filterValue))
-  }
-
-
+  
   private _degintaionfilter(name:string){
     const designationfilterValue=name.toLocaleLowerCase();
     return this.designationoptions.filter(option => option.designation.toLocaleLowerCase().includes(designationfilterValue))
   }
+
+  private _CompanyNamefilter(name:string){
+    const filterValue=name.toLocaleLowerCase();
+    return this.companyNameoptions.filter(option => option.company_name.toLocaleLowerCase().includes(filterValue))
+  }
+
 
   private _cityFilter(name:string){
     const cityfilterValue=name.toLocaleLowerCase();
@@ -155,6 +152,7 @@ export class TableValueComponent extends MatPaginatorIntl implements OnInit {
       return arr.map((mapObj:any) => mapObj[Prop]).indexOf(obj[Prop]) === pos;
     });
   }
+
 
   employeedetail(value:any){
     this.route.navigate(["employee/",value])

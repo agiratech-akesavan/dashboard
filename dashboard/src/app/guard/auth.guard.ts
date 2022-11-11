@@ -14,13 +14,11 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanDeactivate<u
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if(localStorage.getItem("token") == null){
-      return false
+      return true
     }else{
       this.route.navigate(['/dashboard'])
-      return true
+      return false
     }
-      // return true
-    // return this.authentication();
   }
   canActivateChild(
     childRoute: ActivatedRouteSnapshot,

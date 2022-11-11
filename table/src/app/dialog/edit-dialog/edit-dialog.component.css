@@ -1,0 +1,31 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+h1{
+    width:25vw;
+    text-align: center;
+}
+
+.dialog-info h3{
+    font-weight: 500;
+}
+
+.input-field{
+    display: block;
+    width:100%
+}
+input{
+    font-size:1rem;
+}
+mat-label{
+    font-size: 1rem;
+    font-weight: 500;
+}
+.action{
+    margin-top: -1rem;
+    display: flex;
+    justify-content: space-between;
+    width:100%;
+}

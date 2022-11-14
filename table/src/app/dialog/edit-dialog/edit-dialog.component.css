@@ -3,8 +3,18 @@
     padding: 0;
     box-sizing: border-box;
 }
+.dialog-content{
+    width:40vw;
+}
+.edit-box{
+    display: flex;
+}
+.edit-input{
+    width:50%;
+    border-right: 1px solid #25316D;
+    padding-right:1rem;
+}
 h1{
-    width:25vw;
     text-align: center;
 }
 
@@ -29,3 +39,52 @@ mat-label{
     justify-content: space-between;
     width:100%;
 }
+
+.edit-image{
+    width:50%;
+    padding-left: 1rem;
+}
+.edit-image-section{
+    display:flex;
+    justify-content: center;
+    height:120px;
+}
+.edit-image-section img{
+    border-radius: 50%;
+    border: 2px solid gray;
+    padding:5px;
+    height: 100%;
+    /* background-color: #229ecfea; */
+}
+.edit-button-type{
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    width: 100%;
+}
+label{
+    display: block;
+    margin: .8rem 0;
+    padding:.4rem 1rem;
+    border:1px solid #25316D;
+    background-color: #25316D;
+    color:white;
+    width:100%;
+    border-radius: 3px;
+    box-shadow: 1px 2px 3px rgba(128, 128, 128, 0.473);
+    font-weight:500 ;
+}
+label > input[type=file]{
+    display: none;
+}
+.edit-button-type button{
+    padding:.5rem 1rem;
+    border:1px solid #25316D;
+    background-color: #25316D;
+    color: white;
+    width:100%;
+    font-weight:600;
+    box-shadow: 1px 2px 3px rgba(128, 128, 128, 0.473);
+    border-radius: 3px;
+}
+

@@ -13,6 +13,7 @@ import { EditDialogComponent } from '../dialog/edit-dialog/edit-dialog.component
 export class EmployeeDetailComponent implements OnInit,OnDestroy,DoCheck {
 
   public id:any;
+  public image:any;
   public employeesubscribe:any;
   public employeeArray:Detail[]=[];
   public local:any;
@@ -46,11 +47,13 @@ export class EmployeeDetailComponent implements OnInit,OnDestroy,DoCheck {
         localStorage.setItem("employee",JSON.stringify(this.local));
         this.employee=JSON.parse(localStorage.getItem("employee") || "{}");
         // console.log(this.employee);
+        this.image=this.employee.image;
       }
     })
     }else{
       this.employee=JSON.parse(localStorage.getItem("employee")||"{}")
-      console.log(this.employee)
+      this.image=this.employee.image;
+      // console.log(this.employee)
     }
     }
     

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,7 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatPaginatorIntl } from "@angular/material/paginator";
 import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';
 import { AgePipe } from './pipe/age.pipe';
-import { EditDialogComponent } from './dialog/edit-dialog/edit-dialog.component'
+import { EditDialogComponent } from './dialog/edit-dialog/edit-dialog.component';
+import { WebcamModule } from 'ngx-webcam';
 
 
 @NgModule({
@@ -32,13 +33,18 @@ import { EditDialogComponent } from './dialog/edit-dialog/edit-dialog.component'
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    WebcamModule 
   ],
   providers: [
     {
       provide: MatPaginatorIntl, 
       useClass: TableValueComponent
     }
+  ],
+  schemas:[
+    CUSTOM_ELEMENTS_SCHEMA,
+    NO_ERRORS_SCHEMA
   ],
   bootstrap: [AppComponent]
 })

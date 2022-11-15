@@ -69,16 +69,23 @@
         <div class="table">
         <mat-table  matSort [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
 
-            <ng-container matColumnDef="e_id">
-                <th mat-header-cell *matHeaderCellDef>E.No. </th>
-                <td mat-cell *matCellDef="let element"> {{element.e_id}} </td>
-            </ng-container>
+            <ng-templete #templete matColumnDef="e_id">
+                    <th mat-header-cell *matHeaderCellDef>E.No. </th>
+                    <td mat-cell *matCellDef="let element"> {{element.e_id}} </td>  
+            </ng-templete>
             
             <ng-container matColumnDef="first_name">
                 <th mat-header-cell mat-sort-header *matHeaderCellDef> First Name </th>
-                <td mat-cell *matCellDef="let element"> {{element.first_name}} </td>
+                <td mat-cell *matCellDef="let element">
+                    <div *ngIf="!element.edit">
+                        {{element.first_name}}
+                    </div>
+                    <div *ngIf="element.edit">
+                        <input type="text">
+                    </div>
+                </td>
             </ng-container>
-            
+
             <ng-container matColumnDef="last_name">
                 <th mat-header-cell mat-sort-header *matHeaderCellDef> Last Name </th>
                 <td mat-cell *matCellDef="let element"> {{element.last_name}} </td>
@@ -122,6 +129,23 @@
             <ng-container matColumnDef="detail">
                 <th mat-header-cell *matHeaderCellDef> Detail </th>
                 <td mat-cell *matCellDef="let element"><button mat-raised-button class="view-button" (click)="employeedetail(element.e_id)">View</button></td>
+                <!-- <td mat-cell *matCellDef="let element">
+                    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                    <mat-icon>more_vert</mat-icon>
+                  </button>
+                  <mat-menu #menu="matMenu">
+                    <button mat-raised-button class="view-button" (click)="employeedetail(element.e_id)">
+                        view
+                    </button>
+                    <button mat-raised-button class="view-button" (click)="edit(element.e_id)">
+                        edit
+                    </button>
+                  </mat-menu>
+                </td> -->
+            </ng-container>
+            <ng-container matColumnDef="edit">
+                <th mat-header-cell *matHeaderCellDef> edit </th>
+                <td mat-cell *matCellDef="let element"><button mat-raised-button class="view-button" (click)="edit(element)">edit</button></td>
             </ng-container>
             
             <tr mat-header-row *matHeaderRowDef="displayedColumns;sticky:true"></tr>

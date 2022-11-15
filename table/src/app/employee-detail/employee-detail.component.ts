@@ -37,13 +37,14 @@ export class EmployeeDetailComponent implements OnInit,OnDestroy,DoCheck {
     if(localStorage.getItem("employee") == null){
     this.id=this.currentRoute.snapshot.params["id"];
     this.employeesubscribe=this.service.getData().subscribe({
-      next:(item)=>{
+      next:(item:any)=>{
         this.employeeArray=item
       },
-      error:(erro)=>console.log(erro),
+      error:(erro:any)=>console.log(erro),
       complete:()=>{
         // this.employee=(this.employeeArray.find(item=>item.e_id == this.id))
         this.local=(this.employeeArray.find(item=>item.e_id == this.id))
+        console.log(this.local)
         localStorage.setItem("employee",JSON.stringify(this.local));
         this.employee=JSON.parse(localStorage.getItem("employee") || "{}");
         // console.log(this.employee);

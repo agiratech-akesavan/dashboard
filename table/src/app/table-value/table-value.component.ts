@@ -27,12 +27,15 @@ export class TableValueComponent extends MatPaginatorIntl implements OnInit {
   public names:Array<any>=[];
   removeDuplicatesArrayById: Array<Detail> = [];
   removeDuplicateCity:Array<Detail>=[]
-  removeDuplicateCompanyName:Array<Detail>=[]
+  removeDuplicateCompanyName:Array<Detail>=[];
+
+  public editValue:any=false;
+  
 
 
   public data:any;
   public dataSource!:MatTableDataSource<any>;
-  public displayedColumns:string[]=["e_id","first_name","last_name","company_name","designation","email","address","phone","city","detail"]
+  public displayedColumns:string[]=["e_id","first_name","last_name","company_name","designation","email","address","phone","city","detail","edit"]
 
   public companyNameFormControl:any=new FormControl("");
   companyNameoptions!:Detail[];
@@ -99,8 +102,8 @@ export class TableValueComponent extends MatPaginatorIntl implements OnInit {
         this.dataSource.paginator=this.paginator;
         this.names=data;
       },
-      error:(error)=>{
-        console.log(error);
+      error:(err)=>{
+        console.log(err);
       },
       complete:()=>{
 
@@ -157,4 +160,10 @@ export class TableValueComponent extends MatPaginatorIntl implements OnInit {
   employeedetail(value:any){
     this.route.navigate(["employee/",value])
   }
+
+  edit(value:any){
+    value.edit=true;
+    this.editValue=value.edit;
+  }
+
 }

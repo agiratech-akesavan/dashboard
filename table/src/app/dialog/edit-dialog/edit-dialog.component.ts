@@ -3,7 +3,7 @@ import { Component, OnInit,Inject } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import {  MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { AngularMaterialModule } from 'src/app/material/angular-material/angular-material.module';
+import { EmployeedetailService } from 'src/app/service/employeedetail.service';
 
 
 @Component({
@@ -25,7 +25,12 @@ export class EditDialogComponent implements OnInit {
     city:new FormControl(this.data.employee.city),
     image:new FormControl(this.data.image),
   })
-  constructor(@Inject(MAT_DIALOG_DATA) public data:any,public route:Router,public DialogRef:MatDialogRef<EditDialogComponent>) { }
+
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data:any,
+    public route:Router,
+    public DialogRef:MatDialogRef<EditDialogComponent>,
+    public service:EmployeedetailService) { }
 
 
   ngOnInit( ): void {
@@ -96,6 +101,8 @@ export class EditDialogComponent implements OnInit {
       this.employee.image=this.data.employee.image
     }
     this.DialogRef.close(this.employee);
+
+    // this.service.postData(JSON.stringify(this.employee))
   }
 
 }

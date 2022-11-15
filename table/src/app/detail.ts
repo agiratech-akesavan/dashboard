@@ -11,4 +11,5 @@ export interface Detail {
     city:string,
     image:any,
     gender:string,
+    edit:boolean
 }

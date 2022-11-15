@@ -8,7 +8,8 @@ import  { MatIconModule } from "@angular/material/icon";
 import { MatTableModule } from "@angular/material/table";
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatSortModule } from "@angular/material/sort";
-import { MatDialogModule } from "@angular/material/dialog"
+import { MatDialogModule } from "@angular/material/dialog";
+import { MatMenuModule } from "@angular/material/menu"
 
 
 const material=[
@@ -21,7 +22,8 @@ const material=[
   MatTableModule,
   MatPaginatorModule,
   MatSortModule,
-  MatDialogModule
+  MatDialogModule,
+  MatMenuModule
 ]  
 
 @NgModule({

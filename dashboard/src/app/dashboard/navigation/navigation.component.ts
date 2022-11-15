@@ -1,5 +1,5 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
-import {  AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import {  AfterViewInit, Component, OnInit, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToggleService } from 'src/app/service/toggle.service';
 
@@ -50,6 +50,7 @@ export class NavigationComponent implements OnInit,AfterViewInit {
   }
 
   // notification(){
-  //   this.render.addClass(this.notifies.nativeElement,"display")
+    // this.render.addClass(this.notifies.nativeElement,"display")
+    
   // }
 }

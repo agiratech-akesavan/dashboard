@@ -24,7 +24,7 @@
                     <img [src]="updateImage || image">
                 </div>
                 <div class="edit-button-type">
-                    <webcam></webcam>
+                    <!-- <webcam></webcam> -->
                     <div>
                         <button (click)="takephoto()">Take Photo</button>
                         <label>
@@ -34,12 +34,6 @@
                     </div>
                 </div>
             </div>
-            <!-- <div>
-                <mat-form-field class="input-field" appearance='outline'>
-                    <mat-label>Date of Birth</mat-label>
-                    <input type="date" matInput [value]="data.employee.d_o_b">
-                </mat-form-field>
-            </div> -->
         </div>
         <div mat-dialog-actions class="action">
             <button mat-raised-button mat-dialog-close color="accent" (click)="close(editForm.value)">Close</button>

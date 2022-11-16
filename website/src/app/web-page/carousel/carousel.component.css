@@ -1,0 +1,59 @@
+
+img{
+    object-fit: cover;
+    width:100%;
+    height:50vh;    
+}
+
+::ng-deep .carousel-control-prev{
+   left:-3% !important;
+   /* padding: 18px; */
+}
+::ng-deep .carousel-control-next{
+    /* padding: 18px; */
+    position: absolute;
+    left: 85%;
+}
+::ng-deep .carousel-control-prev-icon{
+    background-color: #1d4fb388;
+    border-radius: 50%;
+    border:1px solid white;
+    /* height: 2.5rem; */
+}
+::ng-deep .carousel-control-next-icon{
+    background-color: #1d4fb388;
+    border:1px solid white;
+    border-radius: 50%;
+}
+::ng-deep .carousel-indicators [data-bs-target]{
+    background-color:#1d4fb3;
+    padding: 1px .7rem;
+    border-radius: 11px;
+}
+.carousel-caption-content{
+    display: flex !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    color: black !important;
+    flex-wrap: wrap;
+    height: 35vh;
+    margin-left: -9%;
+}
+.carousel-caption-heading-div{
+    width:30%
+}
+.carousel-caption-paragraph-div{
+    width:40%
+}
+.carousel-caption-heading{
+    text-align:left;
+    font-size: 3rem;
+    line-height: 3rem;
+    color: white;
+}
+.carousel-caption-paragraph{
+    text-align: left;
+    font-size: .9rem;
+    margin: 1.5rem 0rem;
+    color: white;
+}

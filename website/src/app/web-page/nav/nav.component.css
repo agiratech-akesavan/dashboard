@@ -1,0 +1,17 @@
+.navbar{
+    background-color: #1d4fb3;
+    height: 4rem;
+    z-index: 100;
+}
+.navbar-expand-lg .navbar-nav{
+    flex-direction: row;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.nav-link{
+    color:white;
+    font-size: .95rem;
+    font-weight: 400;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

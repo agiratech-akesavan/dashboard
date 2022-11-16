@@ -1,0 +1,22 @@
+.footer{
+    margin-top: 1rem;
+    background-color:#1d4fb3;
+    height:10vh;
+    width:100%;
+}
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+p{
+    margin-top:10px;
+    font-size: .8rem;
+    color: white;
+}
+i{
+    padding: 0 10px;
+    font-size: 1.3rem;
+    color: white;
+}

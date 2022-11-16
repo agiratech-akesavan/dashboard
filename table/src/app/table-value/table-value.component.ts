@@ -1,14 +1,15 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { map, Observable, pipe, startWith } from 'rxjs';
+import { map, Observable, startWith } from 'rxjs';
 import { Detail } from '../detail';
 import { EmployeedetailService } from '../service/employeedetail.service';
 import { PageEvent } from '@angular/material/paginator';
 import { MatPaginatorIntl } from "@angular/material/paginator"
 import { Router } from '@angular/router';
+import { __values } from 'tslib';
 
 @Component({
   selector: 'app-table-value',
@@ -18,7 +19,7 @@ import { Router } from '@angular/router';
 export class TableValueComponent extends MatPaginatorIntl implements OnInit {
 
 
-  constructor( public service:EmployeedetailService,public route: Router) {
+  constructor( public service:EmployeedetailService,public route: Router,public renderer:Renderer2) {
     super();
     this.getAndInitTranslations();
   }
@@ -29,13 +30,12 @@ export class TableValueComponent extends MatPaginatorIntl implements OnInit {
   removeDuplicateCity:Array<Detail>=[]
   removeDuplicateCompanyName:Array<Detail>=[];
 
-  public editValue:any=false;
   
 
 
   public data:any;
   public dataSource!:MatTableDataSource<any>;
-  public displayedColumns:string[]=["e_id","first_name","last_name","company_name","designation","email","address","phone","city","detail","edit"]
+  public displayedColumns:string[]=["e_id","first_name","last_name","company_name","designation","email","address","phone","city","detail"]
 
   public companyNameFormControl:any=new FormControl("");
   companyNameoptions!:Detail[];
@@ -118,6 +118,8 @@ export class TableValueComponent extends MatPaginatorIntl implements OnInit {
         this.designationoptions=this.removeDuplicatesArrayById;
         this.cityoptions=this.removeDuplicateCity;
         this.companyNameoptions=this.removeDuplicateCompanyName;  
+
+
        
         }
     });
@@ -163,7 +165,14 @@ export class TableValueComponent extends MatPaginatorIntl implements OnInit {
 
   edit(value:any){
     value.edit=true;
-    this.editValue=value.edit;
   }
+  save(value:any){
+    value.edit=false;
+  }
+  blur(value:any){
+    value.edit=false;
+    console.log("Working")
+  }
+
 
 }

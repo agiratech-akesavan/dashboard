@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CarouselServiceService } from 'src/app/service/carousel-service.service';
 
 @Component({
   selector: 'app-carousel',
@@ -6,14 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./carousel.component.css']
 })
 export class CarouselComponent implements OnInit {
-
-
-  // images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
   images=true
-  constructor() {
+
+  public data:any;
+  constructor(public service:CarouselServiceService) {
    }
 
   ngOnInit(): void {
+    this.service.getcarouseldata().subscribe({
+      next:(data)=>this.data=data,
+      error:(err)=>console.log(err)
+    })
   }
 
 }

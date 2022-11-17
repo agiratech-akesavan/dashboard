@@ -1,0 +1,44 @@
+[
+    {
+        "id":1,
+        "image":"https://image.shutterstock.com/image-photo/biochemical-research-scientist-team-working-260nw-1726134715.jpg",
+        "lab":"Lab A",
+        "location":"Velachery",
+        "distance":"4"
+    },
+    {
+        "id":2,
+        "image":"https://thumbs.dreamstime.com/b/lab-assistant-studying-samples-to-detect-pathologies-quality-medical-research-stock-video-105848572.jpg",
+        "lab":"Lab B",
+        "location":"Velachery",
+        "distance":"4"
+    },   
+    {
+        "id":3,
+        "image":"https://thumbs.dreamstime.com/b/scientist-medical-lab-testing-sample-trial-reagent-mixing-reagents-glass-flask-glassware-containing-chemical-liquid-176827129.jpg",
+        "lab":"Lab C",
+        "location":"Velachery",
+        "distance":"4"
+    },   
+    {
+        "id":4,
+        "image":"https://thumbs.dreamstime.com/b/medical-doctor-working-research-lab-science-assistant-making-pharmaceutical-experiments-laboratory-tools-microscope-test-tubes-153706530.jpg",
+        "lab":"Lab D",
+        "location":"Velachery",
+        "distance":"4"
+    },   
+    {
+        "id":5,
+        "image":"https://thumbs.dreamstime.com/b/woman-doctor-working-medical-lab-manipulator-microscope-woman-doctor-working-medical-lab-117237553.jpg",
+        "lab":"Lab E",
+        "location":"Velachery",
+        "distance":"4"
+    },   
+    {
+        "id":6,
+        "image":"https://thumbs.dreamstime.com/b/blurred-woman-using-professional-medical-equipment-lab-copy-space-blurred-woman-using-professional-medical-equipment-lab-164458303.jpg",
+        "lab":"Lab F",
+        "location":"Velachery",
+        "distance":"4"
+    }
+]

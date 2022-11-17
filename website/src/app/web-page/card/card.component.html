@@ -1,1 +1,29 @@
-<p>card works!</p>
+<div class="container mt-5 mb-5">
+    <div class="cards-width">
+        <div class="row">
+            <div class="col-12 ps-4">
+                <h3 class="card-header">Labs</h3>
+            </div>
+        </div>
+    </div>
+    <div class="cards-width">
+        <div class="row mt-5">
+            <div class="col-xl-4 col-lg-4 mt-3 mb-3 p-4 col-md-6 col-sm-12 col-12" *ngFor="let card of cardData">
+                <div class="card">
+                    <img [src]="card.image" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h4 class="card-heading">{{card.lab}}</h4>
+                        <div class="card-content">
+                            <i class="fa-sharp fa-solid fa-location-dot card-icon"></i>
+                            <div class="location-detail">
+                                <h5>{{card.location}}</h5>
+                                <p>Distance : {{card.distance}}Km</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    

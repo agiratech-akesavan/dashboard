@@ -1,5 +1,5 @@
 .navbar{
-    background-color: #1d4fb3;
+    background-color: #051a44;
     height: 4rem;
     z-index: 100;
 }
@@ -8,6 +8,11 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    padding:10px;
+    background-color: #051a44;
+}
+.navbar-toggler-icon{
+    color: white;
 }
 .nav-link{
     color:white;
@@ -15,3 +20,42 @@
     font-weight: 400;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+
+
+
+
+/* .navs{
+    display: flex;
+    justify-content: space-between;
+    background-color: #051a44;
+    height: 4rem;
+
+
+}
+.nav-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-content a{ 
+    text-decoration: none;
+    color:white;
+    padding:10px;
+    font-size: .95rem;
+    font-weight: 400;
+}
+.button-toggle{
+    display: none;
+}
+
+@media (max-width:768px){
+    .nav-content{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }   
+} */
+
+  

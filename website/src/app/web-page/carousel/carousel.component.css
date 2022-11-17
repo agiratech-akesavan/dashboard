@@ -1,6 +1,7 @@
 
 img{
     object-fit: cover;
+    background-size: cover;
     width:100%;
     height:50vh;    
 }
@@ -18,17 +19,18 @@ img{
     background-color: #1d4fb388;
     border-radius: 50%;
     border:1px solid white;
-    /* height: 2.5rem; */
 }
 ::ng-deep .carousel-control-next-icon{
     background-color: #1d4fb388;
     border:1px solid white;
     border-radius: 50%;
+    padding:0px 10px;
 }
 ::ng-deep .carousel-indicators [data-bs-target]{
-    background-color:#1d4fb3;
+    background-color:#051a44;
     padding: 1px .7rem;
     border-radius: 11px;
+    margin:0px 15px;
 }
 .carousel-caption-content{
     display: flex !important;
@@ -47,13 +49,60 @@ img{
 }
 .carousel-caption-heading{
     text-align:left;
-    font-size: 3rem;
-    line-height: 3rem;
-    color: white;
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    color: #051a44;
 }
 .carousel-caption-paragraph{
     text-align: left;
     font-size: .9rem;
     margin: 1.5rem 0rem;
-    color: white;
+    color: #051a44;
+}
+.carousel-caption-button-div{
+    display: flex;
+    justify-content: flex-start;
+}
+.carousel-caption-button-div button{
+    background-color: #051a44;
+    color:white;
+}
+
+@media (max-width:1439px){
+    .carousel-caption-heading-div{
+        width:40%
+    }
+    .carousel-caption-paragraph-div{
+        width:50%
+    }
+    .carousel-caption-heading{
+        font-size: 2.5rem;
+        line-height: 2.5rem;
+    }
+}
+
+@media (max-width:991px){
+    .carousel-caption-heading-div{
+        width:60%
+    }
+    .carousel-caption-paragraph-div{
+        width:60%
+    }
+    .carousel-caption-heading{
+        font-size: 2rem;
+        line-height: 2rem;
+    }
+}
+
+@media (max-width:767px){
+    .carousel-caption-heading-div{
+        width:80%
+    }
+    .carousel-caption-paragraph-div{
+        width:80%
+    }
+    .carousel-caption-heading{
+        font-size: 1.5rem;
+        line-height: 1.5rem;
+    }
 }

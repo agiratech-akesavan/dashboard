@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Card } from 'src/app/interface/card';
+import { CardServiceService } from 'src/app/service/card-service.service';
 
 @Component({
   selector: 'app-card',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardComponent implements OnInit {
 
-  constructor() { }
+  public cardData:any
 
-  ngOnInit(): void {
+  constructor( public service:CardServiceService) { 
+  }
+  
+  ngOnInit():void {
+    this.service.getdata().subscribe({
+      next:(data)=>this.cardData=data,
+      error:(error)=>console.log(error),
+      complete:()=>console.log("completed"),
+    })
   }
 
 }

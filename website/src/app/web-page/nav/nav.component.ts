@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class NavComponent implements OnInit {
 
   constructor() { }
-  public navbars=["Home","Dashboard","My Reports","My Orders","Invoicing","Knowledge Base","Bulk Upload","Lab Support"]
+  public navbars=["Home","Dashboard","My Reports","My Orders","Invoicing","Knowledge","Bulk Upload","Lab Support"]
 
   ngOnInit(): void {
   }

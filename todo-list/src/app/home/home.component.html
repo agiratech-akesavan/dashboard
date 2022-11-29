@@ -1,46 +1,106 @@
 <div class="container-fluid">
+  <div class="overlay">
     <div class="container">
-        <div class="content">
-            <div class="inputs mt-5">
-                <div class="row">
-                    <div class="col-12 col-md-6 col-sm-12 col-lg-8">
-                        <form class="input-tag">
-                            <mat-form-field>
-                                <mat-label>Add List</mat-label>
-                                <input type="text" matInput #add [(ngModel)]="todoInput" [ngModelOptions]="{standalone: true}">
-                                <mat-icon matSuffix (click)="addtodo()">add_circle_outline</mat-icon>
-                            </mat-form-field>
-                        </form>
-                    </div>
-                    <div class="col-12 col-md-6 col-sm-12 col-lg-4">
-                        <form class="select-tag">
-                            <mat-form-field appearance="outline" (change)="onChangeSelect(select.value)">
-                            <select matNativeControl #select required>
-                                <option value="all">All</option>
-                                <option value="active">Active</option>
-                                <option value="completed">Completed</option>
-                            </select>
-                        </mat-form-field>
-                    </form>
-                </div>
+      <div class="content">
+        <div class="inputs mt-5">
+          <div class="row">
+            <div class="col-12 col-md-8 col-sm-12 col-lg-8">
+              <form class="input ms-sm-3 ms-md-0">
+                <mat-form-field
+                  [style.width.%]="85"
+                  [style.margin-top.rem]="0.5"
+                  [style.margin-right.rem]="1"
+                  [style.margin-button.rem]="0"
+                  [style.margin-left.rem]="1"
+                >
+                  <mat-label>Add List</mat-label>
+                  <input
+                    type="text"
+                    matInput
+                    #add
+                    [(ngModel)]="todoInput"
+                    [ngModelOptions]="{ standalone: true }"
+                  />
+                  <button 
+                    mat-button
+                    [autofocus]="false"
+                    matSuffix 
+                    [disableRipple]="true"
+                      (click)="addtodo()"
+                      (keyup.enter)="addtodo()"
+                    >
+                      <mat-icon>
+                      add_circle_outline</mat-icon>
+                  </button>
+                </mat-form-field>
+              </form>
             </div>
+            <div class="col-12 col-md-4 col-sm-12 col-lg-4">
+              <form class="select-tag ms-sm-3 ms-md-0">
+                <mat-form-field
+                  appearance="outline"
+                  [style.width.%]="85"
+                  [style.margin-top.rem]="0"
+                  [style.margin-right.rem]="1"
+                  [style.margin-button.rem]="0.5"
+                  [style.margin-left.rem]="1"
+                  (change)="onChangeSelect(select.value)"
+                >
+                  <select matNativeControl #select required>
+                    <option value="all">All</option>
+                    <option value="active">Active</option>
+                    <option value="completed">Completed</option>
+                  </select>
+                </mat-form-field>
+              </form>
+            </div>
+          </div>
         </div>
         <div class="output mt-5">
-            <div class="m-5">
-                <div class="result" *ngFor="let todo of todos">
-                    <div class="checkbox-div" >
-                        <input type="checkbox" class="mb-3 p-5" [value]="todo.completed" [checked]="todo.completed" (change)="onChangeStatus($event,todo)">
-                        <!-- <mat-checkbox class="m-1" [value]="todo.completed" [checked]="todo.completed" (change)="onChangeStatus($event,todo)"></mat-checkbox> -->
-                    </div>
-                    <div class="title-div ms-3">
-                        <h3>{{todo.title}}</h3>
-                    </div>
-                    <div class="delete-div" >
-                        <mat-icon (click)="delete(todo.id)">delete</mat-icon>
-                    </div>
+          <div>
+            <div class="result" *ngFor="let todo of todos">
+              <div class="todo-content">
+                <div class="checkbox-div mt-2">
+                  <input
+                    type="checkbox"
+                    [value]="todo.completed"
+                    [checked]="todo.completed"
+                    (change)="onChangeStatus($event, todo)"
+                  />
+                  <!-- <mat-checkbox class="m-1" [value]="todo.completed" [checked]="todo.completed" (change)="onChangeStatus($event,todo)"></mat-checkbox> -->
                 </div>
+                <div class="title-div ms-3">
+                  <h3 *ngIf="!todo.edit">{{ todo.title }}</h3>
+                  <form *ngIf="todo.edit">
+                    <!-- <mat-form-field appearance="fill" class="todo-list"> -->
+                    <!-- <mat-label>Todo-List</mat-label> -->
+                    <input
+                      type="text"
+                      [value]="todo.title"
+                      #todoList
+                      (blur)="save(todo.id, todo)"
+                      appAutofocus
+                    />
+                    <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+                    <!-- </mat-form-field> -->
+                  </form>
+                </div>
+              </div>
+              <div class="option-div">
+                <div class="edit-div me-2" *ngIf="!todo.edit">
+                  <mat-icon (click)="edit(todo.id, todo)">edit</mat-icon>
+                </div>
+                <div class="save-div ms-2" *ngIf="todo.edit">
+                  <mat-icon (click)="save(todo.id, todo)">save</mat-icon>
+                </div>
+                <div class="delete-div">
+                  <mat-icon (click)="delete(todo.id)">delete</mat-icon>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
+  </div>
 </div>

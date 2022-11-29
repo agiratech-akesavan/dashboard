@@ -1,65 +1,151 @@
-.container-fluid{
-    .container{
-        display: grid;
-        place-content: center;
-        .content{
-            width:500px;
-            .inputs{
-            border:1px solid black;
-            height: 20vh;
+.container-fluid {
+    background-image: linear-gradient(to right, #3b5b63, #91c4d1);
+    height: 100vh;
+
+    .overlay {
+
+        .container {
             display: flex;
             justify-content: center;
             align-items: center;
-            .row{
-                .col-8{
-                    .input-tag{
-                        mat-form-field{
-                            width:200px;
+            height: 95vh;
+            width: 35vw;
+
+            .content {
+                .inputs {
+                    background-color: #f1f8f9;
+                    border: 1px solid #f1f8f9;
+                    height: 15vh;
+                    display: flex;
+                    justify-content: space-evenly;
+                    align-items: center;
+                    border-radius: 13px;
+
+                    .row {
+                        .col-8 {
+                            .input-tag {
+                                margin-top: 2rem;
+                                mat-form-field{
+                                    .mat-button-focus-overlay {
+                                        // background-color: transparent!important;
+                                        background-color: black !important;
+                                        // display: none;
+                                    }   
+                                }
+                            }
                         }
                     }
                 }
-                .col-4{
-                    .select-tag{
-                        mat-form-field{
-                            width:100px !important;
+
+                .output {
+                    height: 63vh;
+                    background-color: white;
+                    border: 1px solid #f1f8f9;
+                    border-radius: 13px;
+                    overflow: auto;
+
+                    .result {
+                        display: flex;
+                        justify-content: space-between;
+                        margin: 1rem;
+
+                        .todo-content {
+                            display: flex;
+                            width: 90%;
+
+                            .title-div {
+                                width: 100%;
+
+                                // overflow: auto;
+                                h3 {
+                                    width: 70%;
+                                    overflow: auto;
+                                }
+
+                                form {
+                                    input {
+                                        padding: 3px;
+                                        font-size: .9rem;
+                                        font-weight: 400;
+                                        width: 80%;
+                                    }
+                                }
+                            }
+
+                        }
+
+                        .option-div {
+                            display: flex;
                         }
                     }
                 }
             }
         }
-        .output{
-            height: 60vh;
-            border:1px solid black;
-            border-radius: 13px;
-            overflow: auto;
-            .result{
-                display: flex;
-                width: 100%;
-                .checkbox-div{
-                    display: flex;
-                    justify-content: flex-start;
-                    // width: 100%;
-                    input{
-                        // padding: 1rem;
-                        width:1rem;
-                    }
-                }
-                .title-div{
-                    display: flex;
-                    width: 100%;    
-                    justify-content: flex-start;
-                }
-            }
-        }
-    }
     }
 }
 
-@media (min-width:1024px){
-    .container-fluid{
-        .container{
-            .content{
-                width:650px;
+
+@media (min-width:768px) and (max-width:1024px) {
+    .container-fluid {
+        .container {
+            .content {
+                .inputs {
+                    width: 60vw;
+                }
+
+                .output {
+                    width: 60vw;
+
+                    .result {
+                        .todo-content {
+                            .title-div {
+                                width: 80%;
+
+                                h3 {
+                                    overflow: auto;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width:100px) and (max-width:767px) {
+    .container-fluid {
+        .container {
+            .content {
+                .inputs {
+                    height: 22vh;
+                    width: 80vw;
+                }
+
+                .output {
+                    width: 80vw;
+
+                    .result {
+                        .todo-content {
+                            width: 70%;
+
+                            .title-div {
+                                width: 100%;
+
+                                // width:100%;
+                                h3 {
+                                    overflow: auto;
+                                }
+
+                                form {
+                                    input {
+                                        width: 90%;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }

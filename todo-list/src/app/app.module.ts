@@ -12,11 +12,14 @@ import { StoreModule } from '@ngrx/store';
 import {  todosReducer } from './provider/todos.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { AutofocusDirective } from './directive/autofocus.directive';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    AutofocusDirective
   ],
   imports: [
     BrowserModule,

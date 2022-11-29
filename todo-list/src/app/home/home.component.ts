@@ -3,6 +3,7 @@ import { select, Store } from '@ngrx/store';
 import { action } from '../provider/todos.action';
 import { todosSelector } from '../provider/todos.reducer';
 import { TodoModel } from '../provider/todos.state';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-home',
@@ -13,6 +14,8 @@ export class HomeComponent implements OnInit {
 
 
   @ViewChild("select") selecttag:ElementRef;
+  @ViewChild("todoList") todolist:ElementRef;
+  @ViewChild("add") addValue:ElementRef
 
   public todoInput:string;
   public arr:any=[];
@@ -32,13 +35,18 @@ export class HomeComponent implements OnInit {
 
 
   addtodo(){
+    if(this.addValue.nativeElement.value == 0){
+      Swal.fire("Warning","Please Enter Work to Add in Todo-List","warning")
+    }else{
     const todos=  {
       id:this.todos.length,
       completed:false,
       title:this.todoInput!,
+      edit:false
     } as any
-
    this.store.dispatch(action.addTodosAction({todos})) 
+    this.todoInput = ""
+  }
   }
 
   delete(value:any){
@@ -47,9 +55,12 @@ export class HomeComponent implements OnInit {
       id:value,
       completed:this.todos.completed,
       title:this.todos.title,
+      edit:false
     }
 
     this.store.dispatch(action.deleteTodosAction(action.deleteTodosAction({todos})))
+    this.onChangeSelect(this.selecttag.nativeElement.value)
+
   }
 
   public parentSelector:boolean=false;
@@ -58,6 +69,7 @@ export class HomeComponent implements OnInit {
 
     
     let value=$event.target.value;
+  
 
     if(value === "false"){
       value = true
@@ -68,7 +80,8 @@ export class HomeComponent implements OnInit {
     let todos={
       id:todo.id,
       completed:value,
-      title:todo.title
+      title:todo.title,
+      edit:false
     }
 
     this.store.dispatch(action.selectTodosAction(action.selectTodosAction({todos})))
@@ -111,6 +124,32 @@ export class HomeComponent implements OnInit {
       })
       this.todos=this.filterValue
     }
+    }
+
+    edit(value:any,todo){
+      let todos={
+        id:todo.id,
+        completed:todo.completed,
+        title:todo.title,
+        edit:true
+      }
+      this.store.dispatch(action.editTodoAction(action.editTodoAction({todos})))  
+    }
+
+    save(value:any,todo:TodoModel){
+      const todoTitle=this.todolist.nativeElement.value
+
+      if(todoTitle.length == 0){
+        this.delete(todo.id);
+      }else{
+        const todos={
+          id:todo.id,
+          completed:todo.completed,
+          title:todoTitle,
+          edit:false
+        }
+        this.store.dispatch(action.editTodoAction(action.editTodoAction({todos})))
+      }
     }
 
 }
